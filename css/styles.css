@@ -76,6 +76,10 @@
   }
 }
 
+.colorscripter-code {
+  font-size: 0.9em;
+}
+
 .sidelabel {
   display: flex;
   align-items: center;
