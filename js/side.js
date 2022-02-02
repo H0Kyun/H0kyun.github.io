@@ -1,13 +1,9 @@
-const bookBtn = document.querySelector('.bookmark-btt');
-const section = document.querySelector('.sidesection');
-const label = document.querySelector('.sidelabel');
+function openNav() {
+   document.getElementById("sidesection").style.left = 0;
+   document.getElementById("sidelabel").style.opacity = 0;
+}
 
-bookBtn.addEventListener('click', function(){
-    section.style.left = 0;
-    label.style.opacity = 0;
-})
-
-bookBtn.addEventListener('blur', function(){
-    section.style.left = '-200px';
-    label.style.opacity = 1;
-})
+function closeNav() {
+    document.getElementById("sidesection").style.left = '-200px';
+    document.getElementById("sidelabel").style.opacity = 1;
+}
