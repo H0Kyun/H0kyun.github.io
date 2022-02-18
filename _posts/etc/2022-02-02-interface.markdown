@@ -1,7 +1,9 @@
+---
 layout: post
 title: Interface
 subtitle: 인터페이스에 대해 공부한 내용
 categories: [etc]
+---
 
 <p>인터페이스(interface)는 서로 다른 두 시스템 사이에서 정보나 신호를 주고받는 경계면을 말합니다.
 두 시스템이 상호작용할 수 있게 해주는 매개체나 규약을 인터페이스라 말합니다.</p>
