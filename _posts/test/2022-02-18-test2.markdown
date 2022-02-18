@@ -1,0 +1,12 @@
+---
+layout: post
+title: test2
+subtitle: test2!!
+categories: [test, etc]
+---
+
+test2
+<p>내용 입력</p>
+                        
+<h2 class="section-heading">섹션 헤드</h2>
+<p>코드는 https://colorscripter.com/ 이용 c언어에 핑크 레몬에이드 설정</p>

@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    {{ content }}
+
+    {%- if site.posts.size > 0 -%}
+      {%- for post in site.posts -%}
+      <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Post preview-->
+        <div class="post-preview">
+          <a href="{{ post.url | relative_url }}">
+            <h2 class="post-title">{{ post.title | escape }}</h2>
+            <h3 class="post-subtitle">{{ post.subtitle | escape }}</h3>
+          </a>
+          {%- assign date_format = site.date_format | default: "%B %-d, %Y" -%}
+          <p class="post-meta">
+            on {{ post.date | date: date_format }}
+          </p>
+        </div> 
+        <!-- Divider-->
+        <hr class="my-4" />
+      </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</div>
