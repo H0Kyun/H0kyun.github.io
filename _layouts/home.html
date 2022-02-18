@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<!-- <div class="home">
+ {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%} 
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div> -->
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    {{ content }}
+
+    {%- if site.posts.size > 0 -%}
+      {%- for post in site.posts -%}
+      <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Post preview-->
+        <div class="post-preview">
+          <a href="{{ post.url | relative_url }}">
+            <h2 class="post-title">{{ post.title | escape }}</h2>
+            <h3 class="post-subtitle">{{ post.subtitle | escape }}</h3>
+          </a>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <p class="post-meta">
+            on {{ post.date | date: date_format }}
+          </p>
+        </div> 
+        <!-- Divider-->
+        <hr class="my-4" />
+      </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</div>
