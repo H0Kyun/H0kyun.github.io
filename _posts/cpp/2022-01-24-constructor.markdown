@@ -4,7 +4,7 @@ title: 생성자
 subtitle: 생성자에 대해 공부한 내용
 categories: [cpp]
 ---
-<p>초기화(initialization)은 어떤 객체에 최초의 값을 부여해주는 과정이고 사용자 정의 타입으로 생성한 객체의 초기화를 해주는 것이 생성자(constructor)입니다.</p>
+<p>초기화(initialization)는 어떤 객체에 최초의 값을 부여해주는 과정이고 사용자 정의 타입으로 생성한 객체의 초기화를 해주는 것이 생성자(constructor)입니다.</p>
                         
 <h2 class="section-heading">기본 생성자</h2>
 <p>기본 생성자(default constructor)는 어떤 인자도 주어지지않은 채로 호출될 수 있는 생성자를 말합니다. 매개변수가 없거나 모든 매개변수가 기본값을 가지고 있으면 기본 생성자가 될 수 있습니다.</p>
