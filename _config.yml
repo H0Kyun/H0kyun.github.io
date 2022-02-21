@@ -31,8 +31,7 @@ github_username:  jekyll
 
 # Build settings
 theme: minima
-plugins:
-  - jekyll-feed
+plugins: ['jekyll-feed', 'jekyll-sitemap']
 
 include: ['_pages']
 
