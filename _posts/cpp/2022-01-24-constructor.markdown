@@ -2,7 +2,7 @@
 layout: post
 title: 생성자
 subtitle: 생성자에 대해 공부한 내용
-categories: [cpp]
+categories: [Cpp]
 ---
 <p>초기화(initialization)는 어떤 객체에 최초의 값을 부여해주는 과정이고 사용자 정의 타입으로 생성한 객체의 초기화를 해주는 것이 생성자(constructor)입니다.</p>
                         

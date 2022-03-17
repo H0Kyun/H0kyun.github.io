@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Interface
+title: 인터페이스
 subtitle: 인터페이스에 대해 공부한 내용
 categories: [etc]
 ---

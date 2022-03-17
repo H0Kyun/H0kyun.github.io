@@ -2,7 +2,7 @@
 layout: post
 title: C++ 시작하기
 subtitle: C++ 공부를 시작할 때 도움되는 내용들
-categories: [cpp]
+categories: [Cpp]
 ---
 
 C++을 처음 시작할 때 도움이 되는 근본적인 내용을 정리해두었습니다.
