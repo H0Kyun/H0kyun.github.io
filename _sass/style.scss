@@ -132,7 +132,7 @@ body {
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
+  text-align: start;//var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1393,17 +1393,17 @@ progress {
 
   .col-lg-7 {
     flex: 0 0 auto;
-    width: 58.33333333%;
+    width: 83.33333333%;
   }
 
   .col-lg-8 {
     flex: 0 0 auto;
-    width: 66.66666667%;
+    width: 83.33333333%;
   }
 
   .col-lg-9 {
     flex: 0 0 auto;
-    width: 75%;
+    width: 83.33333333%;
   }
 
   .col-lg-10 {
@@ -1595,17 +1595,17 @@ progress {
 
   .col-xl-7 {
     flex: 0 0 auto;
-    width: 58.33333333%;
+    width: 83.33333333%;
   }
 
   .col-xl-8 {
     flex: 0 0 auto;
-    width: 66.66666667%;
+    width: 83.33333333%;
   }
 
   .col-xl-9 {
     flex: 0 0 auto;
-    width: 75%;
+    width: 83.33333333%;
   }
 
   .col-xl-10 {
@@ -4574,8 +4574,11 @@ fieldset:disabled .btn {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  @media(max-width: 991px)
+  {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;  
+  }
 
   > {
     .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
@@ -11990,22 +11993,22 @@ blockquote {
 
 @media (min-width: 992px) {
   #mainNav {
-    border-bottom: 1px solid transparent;
-    background: transparent;
+    border-bottom: 1px solid #dee2e6;
+    background: #fff;
 
     .navbar-brand {
-      color: #ced4da;
+      color: #000;
 
       &:focus, &:hover {
-        color: rgba(255, 255, 255, 0.8);
+        color: #0085A1;
       }
     }
 
     .navbar-nav > li.nav-item > a.nav-link {
-      color: #ced4da;
+      color: #000;
 
       &:focus, &:hover {
-        color: rgba(255, 255, 255, 0.8);
+        color: #0085A1;
       }
     }
   }
