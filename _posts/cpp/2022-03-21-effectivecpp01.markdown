@@ -36,5 +36,5 @@ categories: [Cpp]
 &nbsp;항상 #define을 쓰기 전에 const, enum, inline을 먼저 생각하여 #define을 사용하는 습관을 줄일 수 있도록 합시다.
 
 <br>
->###### 참고  
+>###### 자료 출처  
 >###### Effective C++ - 스콧 마이어슨

@@ -19,5 +19,5 @@ categories: [Clean code]
 
 
 <br>
->###### 참고  
+>###### 자료 출처  
 >###### Clean Code - 로버트 C. 마틴
