@@ -30,7 +30,7 @@ github_username:  H0kyun
 # Build settings
 plugins: ['jekyll-feed', 'jekyll-sitemap', 'jekyll-seo-tag']
 
-include: ['_pages']
+include: ['_pages','_categories']
 
 # Exclude from processing.
 # The following items will not be processed, by default.

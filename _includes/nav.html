@@ -8,14 +8,25 @@
             <i id="close" onclick="closeNav()" class="fas fa-angle-double-left"></i>
             <h2>Category</h2>
             <ul class="bookmark-lists">
-                {% for category in site.categories %}
+            {% for category in site.categories %}
                     {% capture category_name %}{{ category | first }}{% endcapture %}
-                    <li class="bookmark"><a href="/{{ category_name | slgize }}/index.html">{{ category_name }}</a></li>
-                {% endfor %}
-                <!-- <li class="bookmark"><a href="/test/index.html">test</a></li>
-                <li class="bookmark"><a href="/cpp/index.html">cpp</a></li>
-                <li class="bookmark"><a href="/etc/index.html">etc</a></li> -->
+                    <li class="bookmark"><a href="{{ category_name }}/index.html">{{ category_name }}</a></li>
+            {% endfor %}
             </ul>
+
+            <!-- {% assign sortedCategories = site.categories[page.category] %}
+            {% for category in site.categories %}
+                {% if category.root == false %}
+                    {% continue %}
+                {% endif %}
+                <ul class="bookmark-lists">{{ category.title }}a
+                    {% if category.children.size >= 1 %}
+                        {% for child in category.children %}
+                            <li class="bookmark"><a href="/{{ category.url }}{{ child }}/index.html">{{ child.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            {% endfor %} -->
         </div>
         <a class="navbar-brand" href="/index.html">Hokyun's Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
