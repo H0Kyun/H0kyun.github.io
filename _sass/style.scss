@@ -109,20 +109,23 @@
 }
 
 .bookmark-lists {
-  padding-left: 30px;
+    padding-bottom: 1rem;
+    margin-right: 20px;
+    padding-left: 0px;
+    list-style: none;
 }
 
 .bookmark {
-  margin-top: 15px;
+    margin-top: 10px;
 
-  &:nth-child(1) {
-    margin-top: 50px;
-  }
+    &:nth-child(1) {
+        margin-top: 50px;
+    }
 
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 body {

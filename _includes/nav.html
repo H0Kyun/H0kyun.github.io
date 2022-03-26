@@ -7,26 +7,19 @@
         <div id="sidesection" class="sidesection">           
             <i id="close" onclick="closeNav()" class="fas fa-angle-double-left"></i>
             <h2>Category</h2>
-            <ul class="bookmark-lists">
-            {% for category in site.categories %}
-                    {% capture category_name %}{{ category | first }}{% endcapture %}
-                    <li class="bookmark"><a href="{{ category_name }}/index.html">{{ category_name }}</a></li>
-            {% endfor %}
+            <br>
+            <ul class="bookmark-lists" style="border-bottom: thin solid #fff">
+            <h5>Programming Language</h5>
+                <li class="bookmark"><a href="Cpp/index.html">↳ C++</a></li>
             </ul>
-
-            <!-- {% assign sortedCategories = site.categories[page.category] %}
-            {% for category in site.categories %}
-                {% if category.root == false %}
-                    {% continue %}
-                {% endif %}
-                <ul class="bookmark-lists">{{ category.title }}a
-                    {% if category.children.size >= 1 %}
-                        {% for child in category.children %}
-                            <li class="bookmark"><a href="/{{ category.url }}{{ child }}/index.html">{{ child.title }}</a></li>
-                        {% endfor %}
-                    {% endif %}
-                </ul>
-            {% endfor %} -->
+            <ul class="bookmark-lists" style="border-bottom: thin solid #fff">
+            <h5>Clean Code</h5>
+                <li class="bookmark"><a href="Clean Code/index.html">↳ Clean Code</a></li>
+            </ul>
+            <ul class="bookmark-lists">
+            <h5>Etc</h5>
+                <li class="bookmark"><a href="etc/index.html">↳ Etc</a></li>
+            </ul>
         </div>
         <a class="navbar-brand" href="/index.html">Hokyun's Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
