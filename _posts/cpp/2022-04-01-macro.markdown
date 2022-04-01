@@ -42,4 +42,5 @@ categories: [Cpp]
 >###### 참고 자료
 >###### [위키백과](https://ko.wikipedia.org/wiki/%EB%A7%A4%ED%81%AC%EB%A1%9C_(%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B3%BC%ED%95%99))
 >###### [TCP School](http://www.tcpschool.com/c/c_prepro_macroFunc)
+>###### [코딩팩토리](https://coding-factory.tistory.com/695)
 >###### Effective C++ - 스콧 마이어슨
