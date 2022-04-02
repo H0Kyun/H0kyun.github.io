@@ -13,15 +13,20 @@ const는 C와 C++에서 상수 선언을 위해 사용되는 키워드이다.
 상수 데이터의 경우 두 가지 스타일로 사용된다. 스타일 차이일 뿐 의미 차이는 없다.
 <script src="https://gist.github.com/H0Kyun/6506c2c7b07d3d517ae9c4176974b58e.js"></script>
 
+<h2 class="section-heading">반복자와 const</h2>
+STL 반복자(iterator)는 포인터와 동작 원리가 흡사하다. 따라서 const로 선언하는 것은 상수 포인터를 선언하는 것과 같다. 상수 데이터처럼 가리키는 대상을 변경하지 못하게 하는 반복자가 필요하다면 <code>const_iterator</code>를 사용하면 된다.
+<script src="https://gist.github.com/H0Kyun/bb3863f022e82c1bb7e7807a60ca77f5.js"></script>
+
 <h2 class="section-heading">매크로 상수와 const 상수</h2>
 <code>#define</code>지시자를 사용해 매크로 상수를 선언하는 것보다 const 키워드를 사용해 상수를 선언하는 것이 더 바람직하다.
 <script src="https://gist.github.com/H0Kyun/1adef11a9a47e2c75f113eeedf3e8b38.js"></script>
 
 매크로 상수를 const 상수로 교체할 때 두 가지 주의점이 있다.
 1. 상수 포인터(constant pointer)를 정의하는 경우<br>상수 포인터를 정의할 때 포인터를 const로 선언해주고 포인터가 가리키는 대상도 const로 선언해야 한다.
+<script src="https://gist.github.com/H0Kyun/77ccc20357eda34e223027b9dba2c58c.js"></script>  
 
-1. 클래스 멤버로 상수를 정의하는 경우(클래스 상수를 정의하는 경우)
-
+1. 클래스 멤버로 상수를 정의하는 경우(클래스 상수를 정의하는 경우)<br>대부분 경우는 아래 예처럼 선언과 정의를 하면 충분하지만, 클래스를 컴파일 하는 도중에 클래스 상수의 값이 필요할 때는 나열자 둔갑술(enum hack)을 사용하면 된다.
+<script src="https://gist.github.com/H0Kyun/889209734f896ea0bee4b385c02ab7ea.js"></script><br>나열자 둔갑술은 나열자(enumerator) 타입의 값은 <code>int</code>가 놓일 곳에도 쓸 수 있다는 C++의 기능을 이용한 것이다.<br><br><script src="https://gist.github.com/H0Kyun/29058bc2e08115b510b3da40ac09c0ea.js"></script>
 
 
 <br>
