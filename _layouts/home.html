@@ -13,7 +13,7 @@ layout: default
       <!-- Post preview-->
         <div class="post-preview">
           <a href="{{ post.url | relative_url }}">
-            <h2 class="post-title">{{ post.title | escape }}</h2>
+            <h2 class="post-title">[{{ post.categories | first }}]{{ post.title | escape }}</h2>
             <h3 class="post-subtitle">{{ post.subtitle | escape }}</h3>
           </a>
           {%- assign date_format = site.date_format | default: "%B %-d, %Y" -%}

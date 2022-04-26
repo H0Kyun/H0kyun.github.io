@@ -3,6 +3,7 @@ layout: post
 title: 2063
 subtitle: 중간값
 categories: [SWEA]
+use_math: true
 ---
 
 [문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5QPsXKA2UDFAUq)

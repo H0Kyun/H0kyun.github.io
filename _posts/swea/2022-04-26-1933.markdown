@@ -3,6 +3,7 @@ layout: post
 title: 1933
 subtitle: 간단한 N의 약수
 categories: [SWEA]
+use_math: true
 ---
 
 [문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PhcWaAKIDFAUq)
