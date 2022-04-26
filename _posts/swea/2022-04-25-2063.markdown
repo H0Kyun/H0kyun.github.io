@@ -9,5 +9,5 @@ categories: [SWEA]
 
 임의로 입력받은 숫자를 크기 기준으로 정렬 후 중간값을 출력해야 하는 문제이다.
 
-<code>algorithm</code>헤더에 있는 <code>sort</code>함수를 사용하면 쉽게 풀 수 있다. <code>sort</code>함수의 시간복잡도는 **O(N log N)**이다.
+<code>algorithm</code>헤더에 있는 <code>sort</code>함수를 사용하면 쉽게 풀 수 있다. <code>sort</code>함수의 시간복잡도는 $$O(N\ \log N)$$이다.
 <script src="https://gist.github.com/H0Kyun/6ecf3f3fe31c656cfce62282b6217059.js"></script>
