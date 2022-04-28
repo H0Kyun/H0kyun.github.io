@@ -5,6 +5,7 @@ subtitle: 더블 더블
 categories: [SWEA]
 use_math: true
 ---
+
 [문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5QDEX6AqwDFAUq)
 
 <code>cmath</code>헤더에 있는 <code>pow</code>함수를 사용하면 쉽게 풀 수 있다.

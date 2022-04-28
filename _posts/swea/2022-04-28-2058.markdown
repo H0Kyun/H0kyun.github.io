@@ -5,6 +5,7 @@ subtitle: 자릿수 더하기
 categories: [SWEA]
 use_math: true
 ---
+
 [문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5QPRjqA10DFAUq)
 
 아래 코드처럼 단순한 연산을 통해 구해도 정답 처리는 되지만 문자열(<code>string</code>)로 입력받고 문자별로 문자 <code>'0'</code>을 빼주고 그 값을 출력하는 방식으로 만드는 것이 더 빠르다. 또한, $9999$를 초과하는 입력을 받아도 작동하기 때문에 확장성도 크다.
