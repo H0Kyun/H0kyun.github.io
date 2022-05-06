@@ -1,0 +1,15 @@
+---
+layout: post
+title: 1984
+subtitle: 중간 평균값 구하기
+categories: [SWEA]
+use_math: true
+---
+
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5Pw_-KAdcDFAUq)
+
+문제에 나오는 '소수점 첫째 자리에서 반올림한다'라는 내용이 핵심인 거 같다.
+
+반올림 문제는 <code>cmath</code> 헤더에 있는 <code>round</code>함수를 이용해 해결했다.
+
+<script src="https://gist.github.com/H0Kyun/cddd35bd9af0fdc81896d71e2034412f.js"></script>
