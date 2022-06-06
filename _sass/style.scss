@@ -305,33 +305,9 @@ a {
 
 pre, code, kbd, samp {
   font-family: var(--bs-font-monospace);
-  font-size: 1em;
+  font-size: 0.9em;
   direction: ltr;
   unicode-bidi: bidi-override;
-}
-
-pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  font-size: 0.875em;
-
-  code {
-    font-size: inherit;
-    color: inherit;
-    word-break: normal;
-  }
-}
-
-code {
-  font-size: 0.875em;
-  color: #d63384;
-  word-wrap: break-word;
-}
-
-a > code {
-  color: inherit;
 }
 
 kbd {
