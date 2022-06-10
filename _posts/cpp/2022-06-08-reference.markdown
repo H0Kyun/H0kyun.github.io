@@ -140,7 +140,7 @@ int main(int argc, char** argv)
     return 0;
 }</code>
 </pre>
-<div style="background-color:#F9CDCE"><h5>주의 사항</h5>지역 범위에서 선언한 객체는 함수가 반환할 때 제거된다. 만약, 함수가 이 객체에 대한 참조를 반환하는 경우 호출자가 NULL 참조를 사용하려고 하면 런타임 에러가 발생한다. 이렇게 참조자는 있지만 참조하고 있는 대상이 없는 참조자를 댕글링 레퍼런스(Dangling reference)라고 부른다.
+<div style="background-color:#F9CDCE;padding: 5%"><h5>주의 사항</h5>지역 범위에서 선언한 객체는 함수가 반환할 때 제거된다. 만약, 함수가 이 객체에 대한 참조를 반환하는 경우 호출자가 NULL 참조를 사용하려고 하면 런타임 에러가 발생한다. 이렇게 참조자는 있지만 참조하고 있는 대상이 없는 참조자를 댕글링 레퍼런스(Dangling reference)라고 부른다.
 <pre>
 <code class="cpp">int& function()
 {
