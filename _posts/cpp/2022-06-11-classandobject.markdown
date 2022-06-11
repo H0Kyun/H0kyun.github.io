@@ -33,7 +33,7 @@ public:
 
     float getWeight() //메소드
     {
-    	return Chicken::weight;
+    	return weight;
     }
 
     void eatFeed(int calorie)
