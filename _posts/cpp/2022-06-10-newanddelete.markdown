@@ -74,7 +74,7 @@ int main(int argc, char** argv)
 <code>delete</code>연산자를 사용하여 <code>new</code>연산자로 동적 할당한 메모리를 해제할 수 있다. 그리고 <code>delete</code>연산자도 <code>new</code>연산자와 마찬가지로 class 내에 <code>delete</code>연산자가 정의되어 있으면 전역 <code>delete</code>연산자가 가려진다. <code>delete</code>연산자는 아래처럼 사용한다.
 <pre><code class="cpp">delete pointer;
 delete[] pointer; //배열</code></pre>
-<div style="background-color:#F9CDCE;padding: 5%"><h5>주의 사항</h5><code>delete</code>연산자는 단순히 메모리를 다시 운영체제로 반환만 한다. 이 말은 메모리가 할당 해제된 메모리를 가리키는 포인터가 생긴다는 뜻이다. 이런 포인터를 댕글링 포인터(Dangling pointer)라 한다. 댕글링 포인터를 사용하면 미정의 행동(Undefined behavior)가 발생한다.
+<div class="warning"><h5>주의 사항</h5><code>delete</code>연산자는 단순히 메모리를 다시 운영체제로 반환만 한다. 이 말은 메모리가 할당 해제된 메모리를 가리키는 포인터가 생긴다는 뜻이다. 이런 포인터를 댕글링 포인터(Dangling pointer)라 한다. 댕글링 포인터를 사용하면 미정의 행동(Undefined behavior)가 발생한다.
 <pre><code class="cpp">#include&lt;iostream&gt;
 
 int main(int argc, char** argv)
