@@ -50,7 +50,7 @@ int main(int argc, char** argv)
     cout << chicken.getWeight() << endl;
     return 0;
 }</code></pre>
-여기서 <code>private:</code>와 <code>public:</code>는 접근 지정자로 외부에서 접근 가능 여부를 지정해준다. 접근 지시자 덕분에 객체 지향 프로그래밍의 특징 중 하나인 캡슐화가 가능해진다. 접근 지정자 관련 내용은 [여기서 확인](https://h0kyun.github.io/cpp/2022/06/11/accesscontrol.html){: target="_blank"}
+여기서 <code>private:</code>와 <code>public:</code>는 접근 지정자로 외부에서 접근 가능 여부를 지정해준다. 접근 지정자 덕분에 객체 지향 프로그래밍의 특징 중 하나인 캡슐화가 가능해진다. 접근 지정자 관련 내용은 [여기서 확인](https://h0kyun.github.io/cpp/2022/06/11/accesscontrol.html){: target="_blank"}
 
 <h2 class="section-heading">객체</h2>
 객체는 실제 존재하는 사물이나 개념, 논리를 추상화하여 속성과 기능들로 만든 소프트웨어 집합이다. 클래스를 통해 객체를 생성하고 생성된 객체가 메모리에 적재되면 그 객체를 인스턴스(Instance)라 부른다. 인스턴스도 객체에 속하고 클래스의 멤버변수와 메소드는 해당 인스턴스의 인스턴스 변수와 인스턴스 메소드가 된다. 앞선 예에서 <code>main</code>함수 내에 <code>Chicken chicken;</code>이 인스턴스 생성에 해당한다.
