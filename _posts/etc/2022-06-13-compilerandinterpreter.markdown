@@ -23,6 +23,6 @@ JAVA와 C#이 대표적인 하이브리드 언어이다. 하이브리드 언어�
 하이브리드 언어는 인터프리터 언어와 다르게 언어로부터 독립적인 실행 파일을 만들 수 있고 컴파일러의 단점이었던 플랫폼 의존성을 해결했다.
 <br>
 >###### 참고 자료
->###### [플랫폼](https://gyong0117.tistory.com/entry/09-%ED%94%8C%EB%9E%AB%ED%8F%BC?category=1020696){: target="_blank"}
+>###### [컴굥일지](https://gyong0117.tistory.com/entry/09-%ED%94%8C%EB%9E%AB%ED%8F%BC?category=1020696){: target="_blank"}
 >###### [wake-up-neo](https://www.wake-up-neo.com/ko/c%2B%2B/c-%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9D%80-%EC%9D%98%EC%A1%B4%EC%A0%81%EC%9E%85%EB%8B%88%EA%B9%8C/1068037048/amp/){: target="_blank"}
 >###### [Learn C++ Programming](https://www.udemy.com/course/cpp-deep-dive/){: target="_blank"}
