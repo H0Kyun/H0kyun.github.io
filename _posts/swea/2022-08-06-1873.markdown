@@ -1,0 +1,167 @@
+---
+layout: post
+title: 1873
+subtitle: 상호의 배틀필드
+categories: [SWEA]
+use_math: true
+---
+
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PobmqAPoDFAUq)
+
+<h2 class="section-heading">풀이</h2>
+1. 입력 받은 배열에서 탱크를 찾아 위치값 과 방향을 저장해준다.
+2. 명령을 입력 받는다.
+3. 명령에 따라 행동을 결정한다.<br>
+	3-1) 위, 아래, 좌, 우 일 때는 탱크가 움직일 위치가 유효한지 확인한다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3-1-1) 배열의 범위를 벗어나거나 탱크가 갈 수 없는 지형이면 회전만 하고 넘어간다.<br>
+    3-2). 발사 명령일 때는 탱크의 방향을 확인하고 해당 방향으로 1씩 전진하며 지형이 무엇인지 확인한다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3-2-1) 지형이 벽돌이라면 지형으로 땅으로 만들고 반복문을 나온다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3-2-2) 지형이 철벽이라면 반복문을 나온다.<br>
+
+자바의 경우 탱크의 위치와 방향을 클래스를 사용해서 만들면 훨씬 깔끔하게 만들 수 있었다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비 중.... 
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution {
+
+	private enum Rotation {
+		Up(0), Down(1), Left(2), Right(3);
+		private final int num;
+		Rotation(int num) { this.num = num; }
+		public int getNum() { return num; }
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for(int testCase = 1; testCase <= T; testCase++) {
+			String[] s = br.readLine().split(" ");
+			int height = Integer.parseInt(s[0]);
+			int width = Integer.parseInt(s[1]);
+			char[][] map = new char[height][width];
+			int[] direction = {-1, 1, -1, 1};
+			int currentTankRotation = -1;
+			int currentTankPositionY = 0, currentTankPositionX = 0;
+			for(int i = 0; i < height; i++) {
+				map[i] = br.readLine().toCharArray();
+				for(int j = 0; j < width; j++) {
+					if(map[i][j] == '.' || map[i][j] == '*' || map[i][j] == '#' || map[i][j] == '-') continue;
+					if( map[i][j] == '<') {
+						currentTankRotation = Rotation.Left.getNum();
+					} else if( map [i][j] == '>') {
+						currentTankRotation = Rotation.Right.getNum();
+					} else if( map [i][j] == '^') {
+						currentTankRotation = Rotation.Up.getNum();
+					} else if( map [i][j] == 'v') {
+						currentTankRotation = Rotation.Down.getNum();
+					}
+					currentTankPositionY = i;
+					currentTankPositionX = j;
+				}
+			}
+			
+			int numberOfCommand = Integer.parseInt(br.readLine());
+			char[] commands = br.readLine().toCharArray();
+			
+			for(int i = 0; i < numberOfCommand; i++) {
+				int x, y;
+				if( commands[i] == 'U') {
+					currentTankRotation = Rotation.Up.getNum();
+					y = currentTankPositionY + direction[Rotation.Up.getNum()];
+					if(y < 0 || map[y][currentTankPositionX] != '.') {
+						map[currentTankPositionY][currentTankPositionX] = '^';
+						continue;
+					}
+					map[currentTankPositionY][currentTankPositionX] = '.';
+					currentTankPositionY = y;
+					map[y][currentTankPositionX] = '^';
+				} else if( commands[i] == 'D') {
+					currentTankRotation = Rotation.Down.getNum();
+					y = currentTankPositionY + direction[Rotation.Down.getNum()];
+					if(y >= height || map[y][currentTankPositionX] != '.') {
+						map[currentTankPositionY][currentTankPositionX] = 'v';
+						continue;
+					}
+					map[currentTankPositionY][currentTankPositionX] = '.';
+					currentTankPositionY = y;
+					map[y][currentTankPositionX] = 'v';
+				} else if( commands[i] == 'L') {
+					currentTankRotation = Rotation.Left.getNum();
+					x = currentTankPositionX + direction[Rotation.Left.getNum()];
+					if(x < 0 || map[currentTankPositionY][x] != '.') {
+						map[currentTankPositionY][currentTankPositionX] = '<';
+						continue;
+					}
+					map[currentTankPositionY][currentTankPositionX] = '.';
+					currentTankPositionX = x;
+					map[currentTankPositionY][x] = '<';
+				} else if( commands[i] == 'R') {
+					currentTankRotation = Rotation.Right.getNum();
+					x = currentTankPositionX + direction[Rotation.Right.getNum()];
+					if(x >= width || map[currentTankPositionY][x] != '.') {
+						map[currentTankPositionY][currentTankPositionX] = '>';
+						continue;
+					}
+					map[currentTankPositionY][currentTankPositionX] = '.';
+					currentTankPositionX = x;
+					map[currentTankPositionY][x] = '>';
+				} else if( commands[i] == 'S') {
+					if(currentTankRotation == Rotation.Up.getNum()) {
+						for(int j = currentTankPositionY; j >= 0; j--) {
+							if(map[j][currentTankPositionX] == '#') break;
+							if(map[j][currentTankPositionX] == '*') {
+								map[j][currentTankPositionX] = '.';
+								break;
+							}
+						}
+					} else if(currentTankRotation == Rotation.Down.getNum()) {
+						for(int j = currentTankPositionY; j < height; j++) {
+							if(map[j][currentTankPositionX] == '#') break;
+							if(map[j][currentTankPositionX] == '*') {
+								map[j][currentTankPositionX] = '.';
+								break;
+							}
+						}
+					} else if(currentTankRotation == Rotation.Right.getNum()) {
+						for(int j = currentTankPositionX; j < width; j++) {
+							if(map[currentTankPositionY][j] == '#') break;
+							if(map[currentTankPositionY][j] == '*') {
+								map[currentTankPositionY][j] = '.';
+								break;
+							}
+						}
+					} else if(currentTankRotation == Rotation.Left.getNum()) {
+						for(int j = currentTankPositionX; j >= 0; j--) {
+							if(map[currentTankPositionY][j] == '#') break;
+							if(map[currentTankPositionY][j] == '*') {
+								map[currentTankPositionY][j] = '.';
+								break;
+							}
+						}
+					}
+					
+				}
+			}
+			
+			
+			sb.append("#" + testCase + " ");
+			for(int i = 0; i < map.length; i++) {
+				for(int j = 0; j < map[i].length; j++) {
+					sb.append(map[i][j]);
+				}
+				sb.append("\n");
+			}
+		}
+		System.out.println(sb);
+	}
+
+}</code></pre>
