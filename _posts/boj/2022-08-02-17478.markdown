@@ -1,0 +1,59 @@
+---
+layout: post
+title: 17478
+subtitle: 재귀함수가 뭔가요?
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/17478)
+
+<h2 class="section-heading">풀이</h2>
+재귀를 이용해 푸는 문제
+
+종료 조건은 입력받은 숫자가 ‘0’이 될 때이다. 재귀 함수 호출 때마다 추가되는 문자가 하이픈(’-’)이 아닌 언더바(’_’)라는 것을 주의해야 한다.
+
+
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static String underBar(int count) {
+		if(count == 0) return "";
+		String s = "____";
+		return s + underBar(--count);
+	}
+	public static void whatIsRecursiveFunction(int number, int count) {
+		System.out.print(underBar(count));
+		System.out.println("\"재귀함수가 뭔가요?\"");
+		if(number == 0) {
+			System.out.print(underBar(count));
+			System.out.println("\"재귀함수는 자기 자신을 호출하는 함수라네\"");
+            System.out.print(underBar(count));
+			System.out.println("라고 답변하였지.");
+			return;
+		}
+		System.out.print(underBar(count));
+		System.out.println("\"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어.\n" + underBar(count)
+				+ "마을 사람들은 모두 그 선인에게 수많은 질문을 했고, 모두 지혜롭게 대답해 주었지.\n" + underBar(count)
+				+ "그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어.\"");
+		whatIsRecursiveFunction(--number, count + 1);
+		System.out.print(underBar(count));
+		System.out.println("라고 답변하였지.");
+	}
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+		int number = Integer.parseInt(br.readLine());
+		
+		System.out.println("어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.");
+		whatIsRecursiveFunction(number, 0);
+
+	}
+
+}</code></pre>
