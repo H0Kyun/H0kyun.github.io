@@ -1,0 +1,116 @@
+---
+layout: post
+title: 2805
+subtitle: 농작물 수확하기
+categories: [SWEA]
+use_math: true
+---
+
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV7GLXqKAWYDFAXB)
+
+<h2 class="section-heading">풀이</h2>
+1. 땅의 크기가 1일 때는 입력 받은 값을 리턴하고 다음으로 넘어간다.
+2. 입력받은 땅의 크기를 2로 나누어 중앙 인덱스 값을 구해준다.
+3. 중앙 행까지는 더해줄 구간의 시작 지점은 늘리고 끝 지점은 줄이고 더해준다.
+4. 중앙 행을 넘은 후에는 구간의 시적 지점을 줄이고 끝 지점은 늘리며 더해줄 구간의 크기를 줄여가며 더해준다. 
+5. 더한 값을 출력한다.
+
+
+<h2 class="section-heading">코드</h2>
+C++  
+<pre><code class="cpp">#include&lt;cstdio&gt;
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    int testCase, T;
+
+    scanf("%d" , &T);
+
+    for(testCase = 1; testCase <= T; testCase++)
+    {
+        int farmSize;
+
+        scanf("%d" , &farmSize);
+
+		int valueOfCrops[49][49] = {0, };
+        int sumOfCropValues = 0;
+
+        for(int i = 0; i < farmSize; i++)
+            for(int j = 0; j < farmSize; j++)
+                scanf("%1d" , &valueOfCrops[i][j]);
+
+        for(int j = 0; j <= farmSize / 2; j++)
+        {
+            int i = farmSize / 2 - j;
+            for(int k = i; k < farmSize - i; k++)
+            {
+                sumOfCropValues += valueOfCrops[j][k];
+            }
+        }
+
+        for(int j = farmSize / 2 + 1; j < farmSize; j++)
+        {
+            int i = j - farmSize / 2;
+            for(int k = i; k < farmSize - i; k++)
+            {
+                sumOfCropValues += valueOfCrops[j][k];
+            }
+        }
+
+    	printf("#%d %d\n", testCase, sumOfCropValues);
+    }
+
+    return 0;
+}</code></pre>
+
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for(int testCase = 1; testCase <= T; testCase++) {
+			int base = Integer.parseInt(br.readLine());
+			int[][] farm = new int[base][base];
+			for(int i = 0; i < base; i++) {
+				char[] c = br.readLine().toCharArray();
+				for(int j = 0; j < c.length; j++) {
+					farm[i][j] = (int)(c[j] - '0');
+				}
+			}
+			
+			if(base == 1) {
+				System.out.println("#" + testCase + " " + farm[0][0]);
+				continue;
+			}
+			
+			int mid = base/2;
+			int start = mid, end = mid, sum = 0;
+			for(int i = 0; i <= mid; i++) {
+				for(int j = start; j <= end; j++) {
+					sum += farm[i][j];
+				}
+				start--; end++;
+			}
+			start += 2; end -= 2;
+			for(int i = mid + 1; i < base; i++) {
+				for(int j = start; j <= end; j++) {
+					sum += farm[i][j];
+				}
+				start++; end--;
+			}
+			
+			System.out.println("#" + testCase + " " + sum);
+		}
+
+	}
+
+} </code></pre>
