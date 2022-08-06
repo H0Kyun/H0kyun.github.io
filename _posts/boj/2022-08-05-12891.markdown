@@ -1,0 +1,121 @@
+---
+layout: post
+title: 12891
+subtitle: DNA 비밀번호
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/12891)
+
+<h2 class="section-heading">풀이</h2>
+슬라이딩 윈도우 알고리즘을 알고 풀면 더 쉽게 풀 수 있었을 것 같다. 그리고 부분문자열이 뭔지부터 알아야 한다. [https://www.acmicpc.net/problem/16916](https://www.acmicpc.net/problem/16916)
+
+1. 처음은 비밀번호 길이만큼 각 문자를 확인하며 필요한 만큼 있는지 확인한다.
+2. 그 후는 앞에 한 문자에 해당하는 개수를 빼주고 다음 문자를 확인해준다.
+3. 그런 식으로 하나 확인하고 하나 빼주는 걸 반복한다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int DNALength = Integer.parseInt(st.nextToken());
+		int passwordLength = Integer.parseInt(st.nextToken());
+		
+		char[] DNA = br.readLine().toCharArray();
+		int count = 0;
+		st = new StringTokenizer(br.readLine(), " ");
+		int a = Integer.parseInt(st.nextToken());
+		int c = Integer.parseInt(st.nextToken());
+		int g = Integer.parseInt(st.nextToken());
+		int t = Integer.parseInt(st.nextToken());
+		int compareA = 0; int compareC = 0; int compareG = 0; int compareT = 0;
+ 		for(int i = 0; i < passwordLength; i++) {
+ 			if(DNA[i] == 'A') compareA++;
+ 			else if(DNA[i] == 'C') compareC++;
+ 			else if(DNA[i] == 'G') compareG++;
+ 			else if(DNA[i] == 'T') compareT++;
+		}
+ 		
+ 		if(a <= compareA && c <= compareC && g <= compareG && t <= compareT)
+ 			count++;
+ 		
+ 		int index = passwordLength;
+		for(int i = index; i < DNALength; i++) {
+			if(DNA[i] == 'A') compareA++;
+ 			else if(DNA[i] == 'C') compareC++;
+ 			else if(DNA[i] == 'G') compareG++;
+ 			else if(DNA[i] == 'T') compareT++;
+					
+			if(DNA[i - passwordLength] == 'A') compareA--;
+ 			else if(DNA[i - passwordLength] == 'C') compareC--;
+ 			else if(DNA[i - passwordLength] == 'G') compareG--;
+ 			else if(DNA[i - passwordLength] == 'T') compareT--;
+			
+			if(a <= compareA && c <= compareC && g <= compareG && t <= compareT)
+	 			count++;
+		}
+		
+		System.out.println(count);
+		
+	}
+	
+}</code></pre>
+<code>HashMap</code>을 사용하면 좀 더 깔끔하게 만들 수 있다.
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int DNALength = Integer.parseInt(st.nextToken());
+		int passwordLength = Integer.parseInt(st.nextToken());
+		
+		char[] DNA = br.readLine().toCharArray();
+		int count = 0;
+		Map&lt;Character, Integer> map = new HashMap&lt;>();
+		st = new StringTokenizer(br.readLine(), " ");
+		map.put('A', Integer.parseInt(st.nextToken()));
+		map.put('C', Integer.parseInt(st.nextToken()));
+		map.put('G', Integer.parseInt(st.nextToken()));
+		map.put('T', Integer.parseInt(st.nextToken()));
+		
+ 		for(int i = 0; i < passwordLength; i++) {
+ 			map.compute(DNA[i], (key, value) -> value - 1);
+		}
+ 		count = addCount(count, map);
+ 		int index = passwordLength;
+		for(int i = index; i < DNALength; i++) {
+			map.compute(DNA[i], (key, value) -> value - 1);
+			map.compute(DNA[i - passwordLength], (key, value) -> value + 1);			
+			count = addCount(count, map);
+		}
+		
+		System.out.println(count);
+		
+	}
+	
+	public static int addCount (int count, Map&lt;Character, Integer> map) {
+ 		for(int i : map.values()) {
+ 			if(i > 0) {
+ 				return count;
+ 			}
+ 		}
+		return ++count;
+	}
+	
+}</code></pre>
