@@ -1,0 +1,55 @@
+---
+layout: post
+title: 1218
+subtitle: 괄호 짝짓기
+categories: [SWEA]
+use_math: true
+---
+
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14eWb6AAkCFAYD)
+
+<h2 class="section-heading">풀이</h2>
+1. 반복문을 이용해 입력 받은 문자열에서  [, {, (, < 가 나오면 그 문자에 해당하는 int 변수 값을 증가한다.
+2. 반대로 ], }, ), >가 나오면 변수 값을 감소한다.
+3. 반복문이 종료되고 각 문자에 해당하는 변수 값이 0과 다르면 0을 같다면 1을 출력해준다.
+
+
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		for(int testCase = 1; testCase <= 10; testCase++) {
+			int bracketsNumber = 0, bracesNumber = 0, parenthesesNumber = 0, anglebracketsNubmer = 0; 
+			int length = Integer.parseInt(br.readLine());
+			char[] s = br.readLine().toCharArray();
+			for(int i = 0; i < length; i++) {
+				if(s[i] == '[') bracketsNumber++;
+				else if(s[i] == '{') bracesNumber++;
+				else if(s[i] == '(') parenthesesNumber++;
+				else if(s[i] == '<') anglebracketsNubmer++;
+				else if(s[i] == ']') bracketsNumber--;
+				else if(s[i] == '}') bracesNumber--;
+				else if(s[i] == ')') parenthesesNumber--;
+				else if(s[i] == '>') anglebracketsNubmer--;
+			}
+			sb.append("#" + testCase + " ");
+			if(bracketsNumber != 0 || bracesNumber != 0 || parenthesesNumber != 0 || anglebracketsNubmer != 0)
+				sb.append(0);
+			else
+				sb.append(1);
+			sb.append('\n');
+		}
+		System.out.println(sb);
+	}
+
+}</code></pre>
