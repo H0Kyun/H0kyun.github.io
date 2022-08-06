@@ -60,7 +60,7 @@ int main()
 	}
 
 	cout << kingPos << "\n" << stonePos;
-}</code</pre>
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
