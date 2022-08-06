@@ -17,8 +17,10 @@ use_math: true
     - 넘어가는 위치가 없다면 현재 왕의 위치 변수에 움직일 위칫값을 대입한다.
 <h2 class="section-heading">코드</h2>
 C++  
-<pre><code class="cpp">#include &lt;iostream>
+<pre><code class="cpp">#include &lt;iostream&gt;
+
 using namespace std;
+
 int main()
 {
 	ios::sync_with_stdio(false);
@@ -58,8 +60,7 @@ int main()
 	}
 
 	cout << kingPos << "\n" << stonePos;
-}
-</code</pre>
+}</code</pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
