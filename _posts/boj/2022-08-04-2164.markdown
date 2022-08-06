@@ -28,7 +28,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		
-		Deque<Integer> dequeue = new ArrayDeque<>();
+		Deque&lt;Integer> dequeue = new ArrayDeque<>();
 		
 		for(int i = 1; i <= N; i++) {
 			dequeue.add(i);
