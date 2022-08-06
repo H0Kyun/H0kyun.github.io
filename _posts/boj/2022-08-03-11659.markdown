@@ -1,0 +1,59 @@
+---
+layout: post
+title: 11659
+subtitle: 구간합 구하기4
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/11659)
+
+<h2 class="section-heading">풀이</h2>
+인터넷 보고 방법을 알았다
+
+1. 숫자를 입력받는 동안 누적합 또한 계산해서 배열에 넣어준다.
+2. 구간 시작점과 끝점을 입력받으면 미리 구했던 끝점까지 누적합에서 (시작점 -1)까지 누적합을 빼준다.
+    - 이때 (시작점 - 1)이 -1이면 끝점까지 누적합만 출력한다.
+3. 자바는 StringTokenizer와 StringBuilder를 이용해서 출력하면 출력 시간을 많이 줄일 수 있다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int length = Integer.parseInt(st.nextToken());
+		int count = Integer.parseInt(st.nextToken());
+
+		st = new StringTokenizer(br.readLine(), " ");
+		long[] number = new long[length];
+		long[] sum = new long[length];
+		number[0] = Long.parseLong(st.nextToken());
+		sum[0] = number[0];
+		for(int i = 1; i < length; i++) {
+			number[i] = Long.parseLong(st.nextToken());
+			sum[i] = sum[i - 1] + number[i];
+			
+		}
+		
+		for(int j = 0; j < count; j++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int start = Integer.parseInt(st.nextToken()) - 1;
+			int end = Integer.parseInt(st.nextToken()) - 1;
+			
+			long result = 0;
+			result = sum[end] - ((start - 1 == -1) ? 0 : sum[start - 1]); 
+			sb.append(result);
+			sb.append('\n');
+		}
+		System.out.println(sb);
+	}
+}</code></pre>
