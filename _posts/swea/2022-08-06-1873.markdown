@@ -6,7 +6,7 @@ categories: [SWEA]
 use_math: true
 ---
 
-[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PobmqAPoDFAUq)
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LyE7KD2ADFAXc)
 
 <h2 class="section-heading">풀이</h2>
 1. 입력받은 배열에서 탱크를 찾아 위치값 과 방향을 저장해준다.
