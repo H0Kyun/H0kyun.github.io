@@ -1,0 +1,45 @@
+---
+layout: post
+title: 2164
+subtitle: 카드2
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/11660)
+
+<h2 class="section-heading">풀이</h2>
+큐를 이용해서 풀면 쉽게 풀 수 있다.
+
+1. 큐를 생성해주고
+2. 큐에 있는 메서드를 이용해 앞에 건 지워주고 그다음 걸 지우면서 뒤에 붙여주는 식으로 만들면 된다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		
+		Deque<Integer> dequeue = new ArrayDeque<>();
+		
+		for(int i = 1; i <= N; i++) {
+			dequeue.add(i);
+		}
+		
+		while(dequeue.size() != 1) {
+			dequeue.removeFirst();
+			dequeue.add(dequeue.removeFirst());
+		}
+
+		System.out.println(dequeue.peek());
+	}
+
+}</code></pre>
