@@ -1,0 +1,62 @@
+---
+layout: post
+title: 2023
+subtitle: 신기한 소수
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/2023)
+
+<h2 class="section-heading">풀이</h2>
+1. 입력받은 $N$을 통해 자릿수를 정해준다.
+    - $N$이 $1$일 때는 바로 출력해준다.
+2. 앞자리가 $2$부터 시작하고 일의 자리는 $1$부터 시작하게 만든다. 1은 소수가 아니기 때문에 왼쪽 한자리를 확인할 때 자연히 걸러지므로 확인할 필요가 없고 일의 자리가 $0$이면 $2$로 나눌 수 있으므로 소수가 아니다.
+3. 소수 검사는 따로 매개변수로 자릿수와 현재 수를 받는 함수에서 한다.
+    - 함수 내부로 들어오면 현재 수를 자리수로 나누고(왼쪽 한자리부터 검사한다) 소수 확인을 한다.
+        - 소수가 아니면 자릿수를 반환한다. 
+        - 소수면 $0$을 반환한다.
+4. 함수의 반환 값이 $0$이면 출력할 문자열에 추가해주고 $0$이 아니면 그 자리수 $- 2$(다음 수로 넘어가면 $+ 2$가 되어 수 하나를 검사하지 않는다.)를 현재 수에 더해준다.
+5. 반복문이 종료되면 문자열을 출력한다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int N = Integer.parseInt(br.readLine());
+		int digit = (int)Math.pow(10, N - 1);
+		if(N == 1) { System.out.println(2 + "\n" + 3 + "\n" + 5 + "\n" + 7 + "\n"); return; }
+		int start = 2 * digit + 1;
+		for(int i = start; i < digit * 10; i+=2) {
+			int prime = checkPrime(digit, i);
+			if(prime == 0) sb.append(i + "\n");
+			else i += prime - 2;
+		}
+		
+		System.out.println(sb);
+	}
+	
+	public static int checkPrime(int digit, int i) {
+		int prime;
+		while(digit > 0) {
+			prime = i / digit;
+			int checknum = 2;
+			while (checknum * checknum <= prime) {
+				if(prime % checknum == 0) return digit;
+				checknum++;
+			}
+			digit /= 10;
+		}
+		return 0;
+	}
+
+}</code></pre>
