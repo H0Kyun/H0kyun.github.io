@@ -37,11 +37,11 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 
-		LinkedList<Integer> dequeue = new LinkedList<>();
+		LinkedList&lt;Integer> dequeue = new LinkedList<>();
 		for(int i = 1; i <= N; i++) {
 			dequeue.add(i);
 		}
-		Queue<Integer> mqueue = new ArrayDeque<>(N);
+		Queue&lt;Integer> mqueue = new ArrayDeque<>(N);
 		st = new StringTokenizer(br.readLine(), " ");
 		for(int i = 0; i < M; i++) {
 			mqueue.add(Integer.parseInt(st.nextToken()));
