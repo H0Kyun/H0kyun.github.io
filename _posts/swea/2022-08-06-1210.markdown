@@ -1,0 +1,75 @@
+---
+layout: post
+title: 1210
+subtitle: Ladder1
+categories: [SWEA]
+use_math: true
+---
+
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14ABYKADACFAYh)
+
+<h2 class="section-heading">풀이</h2>
+도착 지점부터 탐색하면 쉽게 풀 수 있다.
+
+1. 99번 배열에서 값이 2인 인덱스를 찾고 그 값을 저장한다.
+2. 저장한 인덱스부터 올라가며 인덱스 열기준 왼쪽값이 1이면 왼쪽값이 0이 될 때까지 인덱스 값(열)을 감소한다.
+3. 그 후 현재 인덱스 값과 열 이동을 하기 전 인덱스 값을 비교한다. 둘이 다르면 <code class="cpp">continue</code>를 이용해 다음행으로 올라간다.
+4. 왼쪽 값이 1이 아니면 오른쪽 값을 검사한다. 오른쪽 값이 1이면 2번과 3번을 오른쪽 기준으로 반복한다.
+5. 0행에 도착하면 출발지를 알아낸 것이다.
+
+
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중... 
+
+JAVA
+<pre><code clas="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Solution {
+
+    public static void main(String[] args) throws Exception {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+	    for(int testCase = 1; testCase <= 10; testCase++) {
+		    testCase = Integer.parseInt(br.readLine());
+		
+		    int[][] board = new int[100][100];
+		    for(int i = 0; i < 100; i++) {
+			    StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			    for(int j = 0; j < 100; j++) {
+				    board[i][j] = Integer.parseInt(st.nextToken());
+			    }
+			}
+			
+			int startIndex = 0;
+			for(int i = 0; i < 100; i++) {
+				if (board[99][i] == 2) startIndex = i; 
+			}
+			
+			int currentIndex = startIndex;
+			for(int i = 98; i >= 0; i--) {
+				while(currentIndex - 1 >= 0 && board[i][currentIndex - 1] == 1) {
+					--currentIndex;
+				}
+				if(currentIndex != startIndex) { 
+					startIndex = currentIndex;
+					continue;
+				}
+				while(currentIndex + 1 < 100 && board[i][currentIndex + 1] == 1) {
+					++currentIndex;
+				}
+				if(currentIndex != startIndex) { 
+					startIndex = currentIndex;
+					continue;
+				}
+			}
+			
+			System.out.println("#" + testCase + " " + currentIndex);
+		}
+	}
+
+}
+    </code>
+</pre>
