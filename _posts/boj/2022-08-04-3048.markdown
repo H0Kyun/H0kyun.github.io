@@ -1,0 +1,100 @@
+---
+layout: post
+title: 3048
+subtitle: 개미
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/3048)
+
+<h2 class="section-heading">풀이</h2>
+1. 개미 이름을 멤버 변수로 가지고 있는 개미 클래스를 만든다.
+2. 개미 클래스를 상속하는 클래스를 두 개 만든다.
+    - 하나는 전진하는 개미이고 점프하는 주체가 될 객체이다.
+        - 이 객체의 경우 점프를 해야 하는지 확인하는 메서드를 추가한다.
+    - 다른 하나는 마주 오는 개미이고 점프는 하지 않는 객체이다.
+3. 모든 개미 객체를 담을 개미 객체 배열을 만든다.
+4. 전진하는 개미 행진과 마주 오는 개미 행진을 개미 객체 배열에 담는다.
+    - 이때 전진하는 개미 행진은 시스템 인풋의 역순으로 배열에 담아준다.
+5. 입력한 시간만큼 반복문을 돌려주며 개미 배열의 앞부터 점프가 필요한지 확인해주고 점프가 필요하면 점프한다.
+    1. 점프한다는 건 지금 위치 $+ 1$에 있는 객체와 위치를 바꾼다는 것이다.
+    2. 점프했다면 반복문 인덱스값을 $1$ 늘려주어 점프를 마친 객체가 다시 점프 검사하는 것을 방지해준다.
+6. 반복문이 끝나면 개미 객체 배열 내에 개미 객체의 이름을 출력해주면 된다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+class Ant {
+	char name;
+	public Ant(char name) {
+		this.name = name;
+	}
+}
+
+class FAnt extends Ant {
+	public FAnt(char name) {
+		super(name);
+	}
+	
+	public boolean checkNext(Ant ant) {
+		if(ant instanceof SAnt) {
+			return true;
+		}
+		return false;
+	}
+}
+
+class SAnt extends Ant {
+	public SAnt(char name) {
+		super(name);
+	}
+}
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int N1 = Integer.parseInt(st.nextToken());
+		int N2 = Integer.parseInt(st.nextToken());
+		char[] fAntName = br.readLine().toCharArray();
+		char[] sAntName = br.readLine().toCharArray();
+		int T = Integer.parseInt(br.readLine());
+		Ant[] ants = new Ant[N1 + N2];
+		
+		for(int i = 0; i < N1 + N2; i++) {
+			if(i < N1) {
+				ants[i] = new FAnt(fAntName[N1 - 1 - i]);
+			} else {
+				ants[i] = new SAnt(sAntName[i - N1]);
+			}
+		}
+		
+		for(int i = 0; i < T; i++) {
+			for(int j = 0; j < N1 + N2 - 1; j++) {
+				if(ants[j] instanceof FAnt) {
+					FAnt ant = (FAnt)ants[j];
+					if(ant.checkNext(ants[j + 1])) {
+						Ant temp = ants[j];
+						ants[j] = ants[j + 1];
+						ants[j+ 1] = temp;
+						j++;
+					}
+				}
+			}
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		for(Ant a : ants) {
+			sb.append(a.name);
+		}
+		System.out.println(sb);
+	}
+
+}
+</code></pre>
