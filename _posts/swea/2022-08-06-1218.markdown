@@ -9,9 +9,9 @@ use_math: true
 [문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14eWb6AAkCFAYD)
 
 <h2 class="section-heading">풀이</h2>
-1. 반복문을 이용해 입력 받은 문자열에서  [, {, (, < 가 나오면 그 문자에 해당하는 int 변수 값을 증가한다.
+1. 반복문을 이용해 입력받은 문자열에서  [, {, (, < 가 나오면 그 문자에 해당하는 int 변숫값을 증가한다.
 2. 반대로 ], }, ), >가 나오면 변수 값을 감소한다.
-3. 반복문이 종료되고 각 문자에 해당하는 변수 값이 0과 다르면 0을 같다면 1을 출력해준다.
+3. 반복문이 종료되고 각 문자에 해당하는 변숫값이 0과 다르면 0을 같다면 1을 출력해준다.
 
 
 <h2 class="section-heading">코드</h2>
