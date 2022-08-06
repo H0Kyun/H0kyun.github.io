@@ -1,0 +1,59 @@
+---
+layout: post
+title: 2490
+subtitle: 윷놀이
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/2490)
+
+<h2 class="section-heading">풀이</h2>
+배나 등의 개수에 맞는 적절한 문자를 골라준다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+		char result;
+        
+		for(int i = 0; i < 3; i++) {
+			int oneCount = 0;
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			while(st.hasMoreTokens()) {
+				if(Integer.parseInt(st.nextToken()) == 1) oneCount++;
+			}
+			
+			switch (oneCount) {
+			case 0:
+				result = 'D';
+				break;
+			case 1:
+				result = 'C';
+				break;
+			case 2:
+				result = 'B';
+				break;
+			case 3:
+				result = 'A';
+				break;
+			default:
+				result = 'E';
+				break;	
+			}
+			
+			System.out.println(result);
+		}
+	}
+
+}</code></pre>
