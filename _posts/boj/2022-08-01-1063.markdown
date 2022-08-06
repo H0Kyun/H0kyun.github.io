@@ -1,0 +1,66 @@
+---
+layout: post
+title: 1063
+subtitle: 킹
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/1063)
+
+<h2 class="section-heading">풀이</h2>
+1. 8가지 명령에 맞게 움직일 수 있게 현재 왕의 위치에 더하거나 빼줘야 값을 배열로 저장해둔다.
+2. 현재 왕의 위치에 미리 배열에 입력해준 값을 더한 값(왕이 움직일 위치)에 돌이 있는지 확인한다.
+    - 돌이 있다면 돌도 왕과 똑같은 방향으로 이동한다.
+3. 왕이 움직일 위치와 (돌도 움직여야 한다면)돌이 움직일 위치가 8*8 보드를 넘어가지 않는 지 확인한다. 
+    - 둘 중 하나라도 넘어간다면 해당 명령은 무시한다.
+    - 넘어가는 위치가 없다면 현재 왕의 위치 변수에 움직일 위치 값을 대입한다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String[] positionAndMoveCount = br.readLine().split(" ");
+		String kingPos = positionAndMoveCount[0];
+		String stonePos = positionAndMoveCount[1];
+		int moveCount = Integer.parseInt(positionAndMoveCount[2]);
+		
+		String[] commands = {"R", "L", "B", "T", "RB", "RT", "LB", "LT"};
+		int[] colDir = {1, -1, 0, 0, 1, 1, -1, -1};
+		int[] rowDir = {0, 0, -1, 1, -1, 1, -1, 1};
+		
+		for(int i = 0; i < moveCount; i++) {
+			String command = br.readLine();
+			for(int j = 0; j < 8; j++) {
+				if(commands[j].equals(command)) {
+					char kingRow = (char) (kingPos.charAt(1) + rowDir[j]);
+					char kingCol = (char) (kingPos.charAt(0) + colDir[j]);
+                    
+					if(kingRow == stonePos.charAt(1) && kingCol == stonePos.charAt(0)) {
+						char stoneRow = (char) (stonePos.charAt(1) + rowDir[j]);
+						char stoneCol = (char) (stonePos.charAt(0) + colDir[j]);
+						
+						if(stoneRow <= '0' || stoneRow >= '9' || stoneCol < 'A' || stoneCol >= 'I') break;
+						stonePos = String.valueOf(stoneCol) + String.valueOf(stoneRow);
+					}
+					
+					if(kingRow <= '0' || kingRow >= '9' || kingCol < 'A' || kingCol >= 'I') break;
+					kingPos = String.valueOf(kingCol) + String.valueOf(kingRow);
+                    break;
+				}
+			}
+		}
+		
+		System.out.println(kingPos + "\n" + stonePos);
+	}
+
+}
+</code></pre>
