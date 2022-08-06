@@ -6,7 +6,7 @@ categories: [BOJ]
 use_math: true
 ---
 
-[문제 링크](https://www.acmicpc.net/problem/11660)
+[문제 링크](https://www.acmicpc.net/problem/2164)
 
 <h2 class="section-heading">풀이</h2>
 큐를 이용해서 풀면 쉽게 풀 수 있다.
