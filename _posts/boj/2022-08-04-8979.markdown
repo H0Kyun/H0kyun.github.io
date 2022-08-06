@@ -1,0 +1,87 @@
+---
+layout: post
+title: 8979
+subtitle: 올림픽
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/8979)
+
+<h2 class="section-heading">풀이</h2>
+1. 국가별 객체를 만들어 각 메달의 수를 저장한다.
+2. 생성한 객체를 따로 만든 오브젝트 배열에 저장한다.
+3. k 국가의 메달은 따로 변수를 이용해 저장해준다.
+4. 국가 루프를 돌며 k 국가의 성적과 다른 국가의 성적을 비교한다.
+    - k 국가보다 성적이 좋으면 k 국가의 랭크를 증가한다.
+5. 반복문이 종료되면 k 국가의 성적을 출력한다.
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+
+class Country {
+	int name;
+	int gold;
+	int silver;
+	int bronze;
+	public Country(int name, int gold, int silver, int bronze) {
+		this.name = name;
+		this.gold = gold;
+		this.silver = silver;
+		this.bronze = bronze;
+	}
+}
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int numberOfCountry = Integer.parseInt(st.nextToken());
+		int k = Integer.parseInt(st.nextToken());
+		int kGold = 0;
+		int kSilver = 0;
+		int kBronze = 0;
+		int kRank = 1;
+		Country[] country = new Country[numberOfCountry];
+		for(int i = 0; i < numberOfCountry; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int countryName = Integer.parseInt(st.nextToken());
+			// 금메달이 많으면 짱이다.
+			int gold = Integer.parseInt(st.nextToken());
+			int silver = Integer.parseInt(st.nextToken());
+			int bronze = Integer.parseInt(st.nextToken());
+			if(countryName == k) {
+				kGold = gold;
+				kSilver = silver;
+				kBronze = bronze;
+			}
+			country[i] = new Country(countryName, gold, silver, bronze);
+		}
+		
+		for(int i = 0; i < country.length; i++) {
+			if(country[i].name == k) continue;
+			if(country[i].gold > kGold) {
+				kRank++;
+			} else if(country[i].gold == kGold) {
+				if (country[i].silver > kSilver) {
+					kRank++;
+				} else if(country[i].silver == kSilver) {
+					if(country[i].bronze > kBronze) {
+						kRank++;
+					}
+				}
+			}
+		}
+		
+		System.out.println(kRank);
+	}
+
+}
+</code></pre>
