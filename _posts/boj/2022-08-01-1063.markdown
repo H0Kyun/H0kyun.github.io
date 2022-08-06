@@ -17,7 +17,49 @@ use_math: true
     - 넘어가는 위치가 없다면 현재 왕의 위치 변수에 움직일 위칫값을 대입한다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include &lt;iostream>
+using namespace std;
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	string kingPos, stonePos;
+	int moveCount;
+	cin >> kingPos >> stonePos >> moveCount;
+
+	string commands[] = {"R", "L", "B", "T", "RB", "RT", "LB", "LT"};
+	int colDir[] = {1, -1, 0, 0, 1, 1, -1, -1};
+	int rowDir[] = {0, 0, -1, 1, -1, 1, -1, 1};
+
+	for (int i = 0; i < moveCount; i++) {
+		string command;
+		cin >> command;
+		for (int j = 0; j < 8; j++) {
+			if (commands[j] == command) {
+				char kingRow = (char)(kingPos[1] + rowDir[j]);
+				char kingCol = (char)(kingPos[0] + colDir[j]);
+
+				if (kingRow == stonePos[1] && kingCol == stonePos[0]) {
+					char stoneRow = (char)(stonePos[1] + rowDir[j]);
+					char stoneCol = (char)(stonePos[0] + colDir[j]);
+
+					if (stoneRow <= '0' || stoneRow >= '9' || stoneCol < 'A' || stoneCol >= 'I') break;
+					stonePos = stoneCol;
+					stonePos += stoneRow;
+				}
+
+				if (kingRow <= '0' || kingRow >= '9' || kingCol < 'A' || kingCol >= 'I') break;
+				kingPos = kingCol;
+				kingPos += kingRow;
+				break;
+			}
+		}
+	}
+
+	cout << kingPos << "\n" << stonePos;
+}
+</code</pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
