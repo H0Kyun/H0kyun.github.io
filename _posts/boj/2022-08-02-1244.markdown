@@ -1,0 +1,75 @@
+---
+layout: post
+title: 1244
+subtitle: 스위치 켜고 끄기
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/1244)
+
+<h2 class="section-heading">풀이</h2>
+1. 남자든 여자든 받은 번호의 스위치 상태를 변경해야 하므로 먼저 변경했다.
+2. 입력이 남자일 때는 부여 받은 번호의 배수인 스위치 상태를 변경해 줘야 한다.
+3. 여자면 받은 번호를 중심으로 스위치 상태가 같아 대칭인 구간 내에 스위치 상태를 모두 변경 해준다.
+
+<h2 class="section-heading">코드</h2>
+C++  
+코드 준비중...
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws NumberFormatException, Exception {
+		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+		
+		int numberOfSwitch = Integer.parseInt(br.readLine());
+		int[] switchStatus = new int[numberOfSwitch];
+		String[] s = br.readLine().split(" ");
+		for(int i = 0; i < switchStatus.length; i++) {
+			switchStatus[i] = Integer.parseInt(s[i]);
+		}
+		
+		int numberOfStudent = Integer.parseInt(br.readLine());
+		for(int i = 0; i < numberOfStudent; i++) {
+			String[] sexAndNumber = br.readLine().split(" ");
+			char sex = sexAndNumber[0].charAt(0);
+			int number = Integer.parseInt(sexAndNumber[1]);
+
+			if(switchStatus[number -1] == 1) switchStatus[number -1] = 0;
+			else switchStatus[number -1] = 1;
+			
+			if(sex == '1') {
+				for(int j = 2; number * j <= switchStatus.length; j++) {
+					if(switchStatus[number * j - 1] == 1) switchStatus[number * j - 1] = 0;
+					else switchStatus[number * j - 1] = 1;
+				}
+			}
+			
+			if(sex == '2') {
+				int left = number - 1, right = number - 1;
+				while(--left >= 0 && ++right < numberOfSwitch) {
+					if(switchStatus[left] != switchStatus[right]) break;
+					if(switchStatus[left] == 1) {
+						switchStatus[left] = 0;
+						switchStatus[right] = 0;
+					} else {
+						switchStatus[left] = 1;
+						switchStatus[right] = 1;
+					}
+					
+				}
+			}
+		}
+		
+		for(int i = 0; i < switchStatus.length; i++) {
+            System.out.print(switchStatus[i] + " ");
+            if((i + 1) % 20 == 0) System.out.println();
+        }
+
+	}
+
+}</code></pre>
