@@ -1,0 +1,118 @@
+---
+layout: post
+title: 1225
+subtitle: 암호생성기
+categories: [SWEA]
+use_math: true
+---
+
+[문제 링크](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14uWl6AF0CFAYD)
+
+<h2 class="section-heading">풀이</h2>
+큐를 쓰면 쉽게 풀 수 있다!
+
+1. 큐를 생성하고 그 안에 숫자를 넣어준다.
+2. 첫 번째 값에 빼줘야 할 숫자(1~5)를 뺀 것이 0보다 작거나 같은지(문제에서는 0보다 작다고 적혀있지만 실제로는 0보다 작거나 같다) 확인한다. 
+    - 조건이 참이면 반복문을 종료한다.
+    - 그게 아니면 첫 값에 적절한 수를 빼주고 큐 뒤로 넣어준다.
+3. 반복문이 종료되었다면 첫 값을 빼주고 0을 삽입한다.
+
+
+<h2 class="section-heading">코드</h2>
+C++  
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;queue&gt;
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+   	cin.tie(NULL);
+
+    for(int testCase = 1; testCase <= 10; testCase++)
+    {
+        cin >> testCase;
+
+        queue&lt;int&gt;code;
+
+        for(int i = 0; i < 8; i++)
+        {
+            int input;
+            cin >> input;
+
+            code.push(input);
+        }
+
+        int i = 1;
+        while(1)
+        {
+            int encode = (code.front() - i <= 0) ? 0 : code.front() - i;
+            code.pop();
+            code.push(encode);
+
+            if(encode == 0)
+                break;
+
+            i++;
+            if(i == 6)
+                i = 1;
+        }
+
+        cout << "#" << testCase << " ";
+        for(int i = 0; i < 8; i++)
+        {
+            cout << code.front() << " ";
+            code.pop();
+        }
+        cout << "\n";
+    }
+
+    return 0;
+}</code></pre>
+
+
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Solution {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		for(int testCase = 1; testCase <= 10; testCase++) {
+			testCase = Integer.parseInt(br.readLine());
+			Queue&lt;Integer&gt; queue = new ArrayDeque&lt;&gt;();
+			
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			while(st.hasMoreTokens()) {
+				queue.offer(Integer.parseInt(st.nextToken()));
+			}
+			
+			int i = 1;
+			while(queue.peek() - i > 0) {
+				queue.offer(queue.poll() - i);
+				i++;
+				if(i == 6) i = 1;
+			}
+            
+            queue.poll();
+            queue.offer(0);
+			
+			sb.append("#").append(testCase);
+			while(!queue.isEmpty()) {
+				sb.append(" " + queue.poll());
+			}
+			sb.append('\n');
+		}
+		
+		System.out.println(sb);
+	}
+
+}</code></pre>
