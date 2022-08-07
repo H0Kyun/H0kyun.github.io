@@ -12,7 +12,50 @@ use_math: true
 배나 등의 개수에 맞는 적절한 문자를 골라준다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include&lt;iostream>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	for (int i = 0; i < 3; i++)
+	{
+		int oneCount = 0;
+		for (int j = 0; j < 4; j++)
+		{
+			int input;
+			cin >> input;
+			if (input) oneCount++;
+		}
+		
+		char result;
+		switch (oneCount)
+		{
+		case 0:
+			result = 'D';
+			break;
+		case 1:
+			result = 'C';
+			break;
+		case 2:
+			result = 'B';
+			break;
+		case 3:
+			result = 'A';
+			break;
+		default:
+			result = 'E';
+			break;
+		}
+
+		cout << result << "\n";
+	}
+
+	return 0;
+}</pre></code>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
