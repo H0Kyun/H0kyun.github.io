@@ -12,7 +12,38 @@ use_math: true
 입력된 단어가 다른 단어들에 비해 짧아서 세로로 읽을 값이 없거나 널문자를 읽게 될 때에 문자열에 값을 붙이지 않도록 한다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;string>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	string board[5];
+	string s;
+
+	for (int i = 0; i < 5; i++) {
+		getline(cin, s);
+		board[i] = s;
+	}
+
+	s = "";
+
+	for (int i = 0; i < 15; i++) {
+		for (int j = 0; j < 5; j++) {
+			if (i >= board[j].length() || board[j][i] == '\0')
+				continue;
+			s += board[j][i];
+		}
+	}
+
+	cout << s;
+
+	return 0;
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
