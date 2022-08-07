@@ -74,7 +74,7 @@ int main()
 	delete[] switchStatus;
 
 	return 0;
-}</pre></code>
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
