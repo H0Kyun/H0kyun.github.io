@@ -16,7 +16,41 @@ use_math: true
 3. 이를 반복하면 area를 구할 수 있다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include&lt;iostream>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int numberOfPaper;
+	cin >> numberOfPaper;
+
+	bool paper[100][100] = { 0, };
+	int area = 0;
+
+	for (int i = 0; i < numberOfPaper; i++)
+	{
+		int left, bottom;
+		cin >> left >> bottom;
+		for (int j = left - 1; j < left + 9; j++)
+		{
+			for (int k = bottom - 1; k < bottom + 9; k++)
+			{
+				if (!paper[j][k]) {
+					paper[j][k] = 1;
+					area++;
+				}
+			}
+		}
+	}
+
+	cout << area;
+
+	return 0;
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
