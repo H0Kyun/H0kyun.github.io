@@ -16,7 +16,41 @@ use_math: true
 2. 위 블로그 설명을 읽어보면 알겠지만 입력된 구간을 구하기 위해서는 $(1, 1)$ ~ $(x2, y2)$의 합에서 $(1, 1)$ ~ $(x2, y1 - 1)$, $(1, 1)$ ~ $(x1 - 1, y2)$를 빼주고 두 구간을 빼는 동안 2번 뺀 $(1, 1)$ ~ $(x1 - 1, y1 - 1)$ 구간을 합해주면 된다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include&lt;iostream>
+#include&lt;vector&gt;
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int boardSize, count;
+	cin >> boardSize >> count;
+
+	vector&lt;vector&lt;long long>> sum(boardSize + 1, vector&lt;long long>(boardSize + 1));
+	for (int i = 0; i < boardSize; i++)
+	{
+		for (int j = 0; j < boardSize; j++)
+		{
+			long long input;
+			cin >> input;
+			sum[i + 1][j + 1] = sum[i][j + 1] + sum[i + 1][j] - sum[i][j] + input;
+		}
+	}
+
+	for (int i = 0; i < count; i++)
+	{
+		int x1, y1, x2, y2;
+		cin >> x1 >> y1 >> x2 >> y2;
+
+		long long result = sum[x2][y2] - sum[x2][y1 - 1] - sum[x1 - 1][y2] + sum[x1 - 1][y1 - 1];
+		cout << result << "\n";
+	}
+
+	return 0;
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
