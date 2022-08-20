@@ -15,7 +15,35 @@ use_math: true
 2. 큐에 있는 메서드를 이용해 앞에 건 지워주고 그다음 걸 지우면서 뒤에 붙여주는 식으로 만들면 된다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include&lt;iostream>
+#include&lt;queue>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int N, M;
+	cin >> N;
+	queue&lt;int> q;
+	
+
+	for (int i = 1; i <= N; i++)
+		q.push(i);
+
+	int count = 0;
+	while (q.size() != 1)
+	{
+		q.pop();
+		q.push(q.front());
+		q.pop();
+	}
+
+	cout << q.front();
+	return 0;
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.util.ArrayDeque;
