@@ -17,7 +17,59 @@ use_math: true
 5. 반복문이 종료되면 k 국가의 성적을 출력한다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include &lt;iostream>
+#include &lt;vector>
+
+using namespace std;
+
+struct Country {
+    int name;
+    int gold;
+    int silver;
+    int bronze;
+};
+
+int main()
+{
+    ios::sync_with_stdio(false);
+	cin.tie(NULL);
+    
+    int numberOfCountry, k, kGold, kSilver, kBronze, kRank = 1;
+    cin >> numberOfCountry >> k;
+
+    vector&lt;Country> country(numberOfCountry);
+    for(int i = 0; i < numberOfCountry; i++)
+    {
+        cin >> country[i].name >> country[i].gold >> country[i].silver >> country[i].bronze;
+        if(country[i].name == k)
+        {
+            kGold = country[i].gold;
+            kSilver = country[i].silver;
+            kBronze = country[i].bronze;
+        }
+    }
+
+    for(int i = 0; i < country.size(); i++) 
+    {
+        if(country[i].name == k) continue;
+        if(country[i].gold > kGold) {
+            kRank++;
+        } else if(country[i].gold == kGold) {
+            if (country[i].silver > kSilver) {
+                kRank++;
+            } else if(country[i].silver == kSilver) {
+                if(country[i].bronze > kBronze) {
+                    kRank++;
+                }
+            }
+        }
+    }
+		
+	cout << kRank;
+
+    return 0;
+}
+</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
