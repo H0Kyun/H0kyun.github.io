@@ -1,0 +1,133 @@
+---
+layout: post
+title: 18258
+subtitle: 큐2
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/18258){: target="_blank"}
+
+<h2 class="section-heading">풀이</h2>
+주어진 명령어에 맞게 적절한 큐 라이브러리의 함수를 사용하면 쉽게 풀 수 있다.
+<h2 class="section-heading">코드</h2>
+C++
+<pre><code class="cpp">#include&lt;iostream>
+#include&lt;queue>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	queue&lt;int> q;
+	
+    int numberOfCommand;
+    cin >> numberOfCommand;
+	for (int i = 0; i < numberOfCommand; i++)
+	{
+        string command;
+        cin >> command;
+        if(command.compare("push") == 0)
+        {
+            int data;
+            cin >> data;
+            q.push(data);
+        } 
+        else if(command.compare("pop") == 0)
+        {
+            if(!q.empty())
+            {
+                cout << q.front();
+                q.pop();
+            }
+            else cout << -1;
+            cout << "\n";
+        }
+        else if(command.compare("size") == 0)
+        {
+            cout << q.size() << "\n";
+        }
+        else if(command.compare("empty") == 0)
+        {
+            if(q.empty()) cout << 1;
+            else cout << 0;
+            cout << "\n";
+        }
+        else if(command.compare("front") == 0)
+        {
+            if(!q.empty())
+            {
+                cout << q.front();
+            }
+            else cout << -1;
+            cout << "\n";
+        }
+        else if(command.compare("back") == 0)
+        {
+            if(!q.empty())
+            {
+                cout << q.back();
+            }
+            else cout << -1;
+            cout << "\n";
+        }
+    }
+    
+	return 0;
+}</code></pre>
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		Deque&lt;Integer> queue = new ArrayDeque<>();
+		
+		int numberOfCommand = Integer.parseInt(br.readLine());
+		for(int i = 0; i < numberOfCommand; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			String command = st.nextToken();
+			if (command.equals("push")) {
+				queue.add(Integer.parseInt(st.nextToken()));
+			} else if(command.equals("pop")) {
+				if(!queue.isEmpty())
+					sb.append(queue.poll());
+				else
+					sb.append(-1);
+				sb.append("\n");
+			} else if(command.equals("size")) {
+				sb.append(queue.size());
+				sb.append("\n");
+			} else if(command.equals("empty")) {
+				if(queue.isEmpty())
+					sb.append(1);
+				else
+					sb.append(0);
+				sb.append("\n");
+			} else if(command.equals("front")) {
+				if(queue.isEmpty())
+					sb.append(-1);
+				else
+					sb.append(queue.getFirst());
+				sb.append("\n");
+			} else if(command.equals("back")) {
+				if(queue.isEmpty())
+					sb.append(-1);
+				else
+					sb.append(queue.getLast());
+				sb.append("\n");
+			}
+		}
+		System.out.println(sb);
+	}
+
+}</code></pre>
