@@ -1,0 +1,99 @@
+---
+layout: post
+title: 2493
+subtitle: 탑
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/12891){: target="_blank"}
+
+<h2 class="section-heading">풀이</h2>
+1. 인덱스를 넣어줄 스택, 타워를 넣어줄 스택을 생성한다.
+2. 첫 번째 타워와 그 타워의 인덱스는 미리 넣어준다.
+3. 타워를 입력받으면 스택에 있는 타워가 자신보다 작은지 확인한다.
+    1. 작으면 수신을 못 하기 때문에 작은 타워를 인덱스 스택과 타워 스택에서 뺀다.
+    1. 같거나 크면 반복문을 빠져나온다.
+4. 인덱스 스택의 <code>top</code>이 가리키는 값을 출력한다.
+5. 다음 타워가 현재 타워보다 작을 수 있으므로 현재 타워와 그 인덱스값을 스택에 넣어준다.
+<h2 class="section-heading">코드</h2>
+C++
+<pre><code class="cpp">#include&lt;iostream>
+#include&lt;stack>
+
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int numberOfTower;
+    cin >> numberOfTower;
+    stack&lt;int> Stack;
+    stack&lt;int> index;
+	
+    int input;
+    cin >> input;
+    Stack.push(input);
+
+    cout << "0 ";
+    index.push(0); index.push(1);
+    
+    for(int i = 2; i <= numberOfTower; i++)
+    {
+        int towerHeight;
+        cin >> towerHeight;
+        while(!Stack.empty())
+        {
+            if(Stack.top() < towerHeight)
+            {
+                Stack.pop();
+                index.pop();
+            } else break;
+        }
+        cout << index.top() << " ";
+        Stack.push(towerHeight);
+        index.push(i);
+    }
+	return 0;
+}</code></pre>
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		int numberOfTower = Integer.parseInt(br.readLine());
+		
+		Stack&lt;Integer> stack = new Stack<>();
+		Stack&lt;Integer> index = new Stack<>();
+		
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		stack.push(Integer.parseInt(st.nextToken()));
+		sb.append("0 ");
+		index.push(0); index.push(1); 
+		int towerIndex = 1;
+		while (st.hasMoreTokens()) {
+			int towerHeight = Integer.parseInt(st.nextToken());
+			towerIndex++;
+			while(!stack.isEmpty()) {
+				if(stack.peek() < towerHeight) {
+					stack.pop();
+					index.pop();
+				} else break;
+			}
+			sb.append(index.peek() + " ");
+			stack.push(towerHeight);
+			index.push(towerIndex);
+		}
+		
+		
+		System.out.println(sb);
+	}
+}</code></pre>
