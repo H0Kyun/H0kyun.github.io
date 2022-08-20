@@ -6,7 +6,7 @@ categories: [BOJ]
 use_math: true
 ---
 
-[문제 링크](https://www.acmicpc.net/problem/12891){: target="_blank"}
+[문제 링크](https://www.acmicpc.net/problem/2493){: target="_blank"}
 
 <h2 class="section-heading">풀이</h2>
 1. 인덱스를 넣어줄 스택, 타워를 넣어줄 스택을 생성한다.
