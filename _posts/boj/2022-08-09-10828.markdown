@@ -1,0 +1,118 @@
+---
+layout: post
+title: 10828
+subtitle: 스택
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/10828){: target="_blank"}
+
+<h2 class="section-heading">풀이</h2>
+주어진 명령어에 맞게 적절한 스택 라이브러리의 함수를 사용하면 쉽게 풀 수 있다.
+<h2 class="section-heading">코드</h2>
+C++
+<pre><code class="cpp">#include&lt;iostream>
+#include&lt;queue>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	stack&lt;int> s;
+	
+    int numberOfCommand;
+    cin >> numberOfCommand;
+	for (int i = 0; i < numberOfCommand; i++)
+	{
+        string command;
+        cin >> command;
+        if(command.compare("push") == 0)
+        {
+            int data;
+            cin >> data;
+            s.push(data);
+        } 
+        else if(command.compare("pop") == 0)
+        {
+            if(!s.empty())
+            {
+                cout << s.top();
+                s.pop();
+            }
+            else cout << -1;
+            cout << "\n";
+        }
+        else if(command.compare("size") == 0)
+        {
+            cout << s.size() << "\n";
+        }
+        else if(command.compare("empty") == 0)
+        {
+            if(s.empty()) cout << 1;
+            else cout << 0;
+            cout << "\n";
+        }
+        else if(command.compare("top") == 0)
+        {
+            if(!s.empty())
+            {
+                cout << s.top();
+            }
+            else cout << -1;
+            cout << "\n";
+        }
+    }
+    
+	return 0;
+}</code></pre>
+JAVA
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		Stack&lt;Integer> stack = new Stack<>();
+		
+		int numberOfCommand = Integer.parseInt(br.readLine());
+		for(int i = 0; i < numberOfCommand; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			String command = st.nextToken();
+			if (command.equals("push")) {
+				stack.push(Integer.parseInt(st.nextToken()));
+			} else if(command.equals("pop")) {
+				if(!stack.isEmpty())
+					sb.append(stack.pop());
+				else
+					sb.append(-1);
+				sb.append("\n");
+			} else if(command.equals("size")) {
+				sb.append(stack.size());
+				sb.append("\n");
+			} else if(command.equals("empty")) {
+				if(stack.isEmpty())
+					sb.append(1);
+				else
+					sb.append(0);
+				sb.append("\n");
+			} else if(command.equals("top")) {
+				if(stack.isEmpty())
+					sb.append(-1);
+				else
+					sb.append(stack.peek());
+				sb.append("\n");
+			}
+		}
+		System.out.println(sb);
+
+	}
+
+}</code></pre>
