@@ -1,0 +1,98 @@
+---
+layout: post
+title: 16935
+subtitle: A → B
+categories: [BOJ]
+use_math: true
+---
+
+[문제 링크](https://www.acmicpc.net/problem/16935){: target="_blank"}
+
+<h2 class="section-heading">풀이</h2>
+BFS를 이용해 푸는 문제이다. 이 문제는 수가 겹칠 일이 없다. 따라서 방문 체크를 할 필요가 없다. 그리고 입력받는 값은 $10$억 아래이지만 $\times2$나 $\times10+1$한 값이 $10$억을 넘길 수 있기에 그에 대한 예외 처리를 해줘야 한다.
+
+<h2 class="section-heading">코드</h2>
+C++  
+<pre><code class="cpp">#include &lt;iostream>
+#include &lt;queue>
+
+using namespace std;
+
+int bfs(int A, int B)
+{
+    queue&lt;int> q;
+    q.push(A);
+    int depth = 1;
+    while(!q.empty())
+    {
+        int size = q.size();
+        while(--size >= 0)
+        {
+            int cur = q.front();
+            q.pop();
+            if(cur > 500000000) continue;
+            int times = cur * 2;
+            if(times == B) return depth + 1;
+            if(times < B) q.push(times);
+
+            if(cur > 100000000) continue;
+            int appendOne = cur * 10 + 1;
+            if(appendOne == B) return depth + 1;
+            if(appendOne < B) q.push(appendOne);
+        }
+        depth++;
+    }
+    
+    return -1;
+}
+
+int main()
+{
+    int A, B;
+    cin >> A >> B;
+		
+    cout << bfs(A, B);
+}</code></pre>
+
+JAVA
+<pre><code class="java">import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int A = sc.nextInt();
+		int B = sc.nextInt();
+		
+		System.out.println(bfs(A, B));
+		sc.close();
+	}
+	
+	private static int bfs(int A, int B) {
+		Queue<Integer> q = new ArrayDeque<Integer>();
+		q.offer(A);
+		int depth = 1;
+		while(!q.isEmpty()) {
+			int size = q.size();
+			while(--size >= 0) {
+				int cur = q.poll();
+				if(cur > 500000000) continue;
+				int times = cur * 2;
+				if(times == B) return depth + 1;
+				if(times < B) {
+					q.offer(times);
+				}
+				if(cur > 100000000) continue;
+				int appendOne = cur * 10 + 1;
+				if(appendOne == B) return depth + 1;
+				if(appendOne < B) {
+					q.offer(appendOne);
+				}
+			}
+			depth++;
+		}
+		
+		return -1;
+	}
+}</code></pre>
