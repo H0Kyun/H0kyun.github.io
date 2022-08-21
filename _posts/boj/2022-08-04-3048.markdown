@@ -9,8 +9,8 @@ use_math: true
 [문제 링크](https://www.acmicpc.net/problem/3048)
 
 <h2 class="section-heading">풀이</h2>
-1. 개미 이름을 멤버 변수로 가지고 있는 개미 클래스를 만든다.
-2. 개미 클래스를 상속하는 클래스를 두 개 만든다.
+1. 개미 이름을 멤버 변수로 가지고 있는 개미 클래스를 만든다.(C++ 은 pair자료형을 이용한 벡터를 이용했다.)
+2. 개미 클래스를 상속하는 클래스를 두 개 만든다.(C++ 에서는 점프 주체는 $0$, 객체는 $1$로 표현했다.)
     - 하나는 전진하는 개미이고 점프하는 주체가 될 객체이다.
         - 이 객체의 경우 점프를 해야 하는지 확인하는 메서드를 추가한다.
     - 다른 하나는 마주 오는 개미이고 점프는 하지 않는 객체이다.
@@ -23,7 +23,54 @@ use_math: true
 6. 반복문이 끝나면 개미 객체 배열 내에 개미 객체의 이름을 출력해주면 된다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include &lt;iostream>
+#include &lt;vector>
+
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+	cin.tie(NULL);
+    
+    int N1, N2, T;
+    cin >> N1 >> N2;
+    int totalLength = N1 + N2;
+    vector&lt;pair&lt;char, int>> ants(totalLength);
+    
+    for(int i = N1 - 1; i >= 0; i--)
+    {
+        cin >> ants[i].first;
+    }
+
+    for(int i = N1; i < totalLength; i++)
+    {
+        cin >> ants[i].first;
+        ants[i].second = 1;
+    }
+
+    cin >> T;
+    for(int i = 0; i < T; i++)
+    {
+        for(int j = 0; j < totalLength - 1; j++)
+        {
+            if(ants[j].second == 0 && ants[j + 1].second == 1)
+            {
+                pair&lt;char, int> temp = ants[j];
+                ants[j] = ants[j + 1];
+                ants[j + 1] = temp;
+                j++;
+            }
+        }
+    }
+
+    for(pair&lt;char, int> ant : ants)
+    {
+        cout << ant.first;
+    }
+
+    return 0;
+}</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;

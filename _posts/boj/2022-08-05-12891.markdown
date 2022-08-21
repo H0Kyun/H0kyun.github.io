@@ -6,17 +6,68 @@ categories: [BOJ]
 use_math: true
 ---
 
-[문제 링크](https://www.acmicpc.net/problem/12891)
+[문제 링크](https://www.acmicpc.net/problem/12891){: target="_blank"}
 
 <h2 class="section-heading">풀이</h2>
-슬라이딩 윈도우 알고리즘을 알고 풀면 더 쉽게 풀 수 있었을 것 같다. 그리고 부분문자열이 뭔지부터 알아야 한다. [https://www.acmicpc.net/problem/16916](https://www.acmicpc.net/problem/16916)
+슬라이딩 윈도우 알고리즘을 알고 풀면 더 쉽게 풀 수 있었을 것 같다. 그리고 부분문자열이 뭔지부터 알아야 한다. 아래는 부분 문자열을 설명해주는 다른 백준 문제링크이다.  
+[https://www.acmicpc.net/problem/16916](https://www.acmicpc.net/problem/16916){: target="_blank"}
 
 1. 처음은 비밀번호 길이만큼 각 문자를 확인하며 필요한 만큼 있는지 확인한다.
 2. 그 후는 앞에 한 문자에 해당하는 개수를 빼주고 다음 문자를 확인해준다.
 3. 그런 식으로 하나 확인하고 하나 빼주는 걸 반복한다.
 <h2 class="section-heading">코드</h2>
 C++  
-코드 준비중...
+<pre><code class="cpp">#include&lt;iostream>
+#include&lt;vector>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int DNALength, passwordLength;
+	cin >> DNALength >> passwordLength;
+	
+    string DNA;
+    int count = 0;
+    cin >> DNA;
+
+    int a, c, g, t;
+    cin >> a >> c >> g >> t;
+    int compareA = 0, compareC = 0, compareG = 0, compareT = 0;
+    for(int i = 0; i < passwordLength; i++)
+    {
+        if(DNA[i] == 'A') compareA++;
+        else if(DNA[i] == 'C') compareC++;
+        else if(DNA[i] == 'G') compareG++;
+        else if(DNA[i] == 'T') compareT++;
+    }
+	
+    if(a <= compareA && c <= compareC && g <= compareG && t <= compareT)
+        count++;
+
+	for(int i = passwordLength; i < DNALength; i++)
+    {
+        if(DNA[i] == 'A') compareA++;
+        else if(DNA[i] == 'C') compareC++;
+        else if(DNA[i] == 'G') compareG++;
+        else if(DNA[i] == 'T') compareT++;
+
+        if(DNA[i - passwordLength] == 'A') compareA--;
+        else if(DNA[i - passwordLength] == 'C') compareC--;
+        else if(DNA[i - passwordLength] == 'G') compareG--;
+        else if(DNA[i - passwordLength] == 'T') compareT--;
+
+        if(a <= compareA && c <= compareC && g <= compareG && t <= compareT)
+            count++;
+    }
+
+	cout << count;
+	return 0;
+}
+</code></pre>
 
 JAVA
 <pre><code class="java">import java.io.BufferedReader;
