@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 16935
+title: 16953
 subtitle: A → B
 categories: [BOJ]
 use_math: true
 ---
 
-[문제 링크](https://www.acmicpc.net/problem/16935){: target="_blank"}
+[문제 링크](https://www.acmicpc.net/problem/16953){: target="_blank"}
 
 <h2 class="section-heading">풀이</h2>
 BFS를 이용해 푸는 문제이다. 이 문제는 수가 겹칠 일이 없다. 따라서 방문 체크를 할 필요가 없다. 그리고 입력받는 값은 $10$억 아래이지만 $\times2$나 $\times10+1$한 값이 $10$억을 넘길 수 있기에 그에 대한 예외 처리를 해줘야 한다.
