@@ -78,7 +78,22 @@ int main()
 
     return 0;
 }</code></pre>
+앞서 언급한 모놀리식, 절차지향, 객체지향 모두 명령형 프로그래밍(imperative programming)이다. 명령형 프로그래밍은 **어떻게** 동작해야 하는지를 명시하는 프로그래밍 패러다임이다. 따라서 프로젝트 규모가 커질수록 복잡성이 늘어나고 이를 해결하기 위해 더 추상적인 표현이 필요했다. 이를 해결해 준 것이 선언형 프로그래밍(declarative programming)이다.
+
+## 선언형 프로그래밍
+
+선언형 프로그래밍(declarative programming)은 어떤 방식으로 작동하게 명령하는 것이 아니라 **무엇을** 해야 하는지 기술하는 방식을 말한다. HTML을 생각하면 쉽다. HTML은 어떻게 동작하라는 것을 명시하지 않고 무엇을 보여줘야 하는지만 명시되어 있다. 선언형 프로그래밍에는 대표적으로 함수형 프로그래밍이 있다.
+
+## 함수형 프로그래밍
+
+함수형 프로그래밍(functional programming)은 상태 변경을 최소화하고 자료 처리를 수학적 함수의 계산으로 취급한다. 자료 처리를 수학적 함수로 하니 입력값에 따른 결과값이 명확하고 외부 요인에 의해 변경될 일이 없다. 
+
+---
+
 <br>
 >###### 참고 자료
 >###### [BSC BTech Smart Class](http://www.btechsmartclass.com/c_plus_plus/theory_tutorials/cplusplus_programming_paradigms.html){: target="_blank"}
 >###### [Learn C++ Programming](https://www.udemy.com/course/cpp-deep-dive/){: target="_blank"}
+>###### [TechTarget](https://www.techtarget.com/searchapparchitecture/tip/The-basics-of-working-with-declarative-programming-languages){: target="_blank"}
+>###### [위키백과: 선언형 프로그래밍](https://ko.wikipedia.org/wiki/%EC%84%A0%EC%96%B8%ED%98%95_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D){: target="_blank"}
+>###### [위키백과: 함수형 프로그래밍](https://ko.wikipedia.org/wiki/%ED%95%A8%EC%88%98%ED%98%95_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D){: target="_blank"}
