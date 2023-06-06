@@ -2,7 +2,7 @@
 layout: post
 title: 프로그래밍 패러다임
 subtitle: 프로그래밍 패러다임 변화를 알아보자
-categories: [ProgrammingLanguage]
+categories: [프로그래밍언어]
 ---
 
 프로그래밍 패러다임은 필요에 의해 모놀리식(Monolithic), 절차지향(Procedural-oriented), 객체지향(Object-oriented)순으로 변화해 왔다. 각 패러다임에 대해 알아보자.
