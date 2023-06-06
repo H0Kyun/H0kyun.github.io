@@ -2,7 +2,7 @@
 layout: post
 title: 클래스와 객체
 subtitle: 클래스와 객체에 대해 알아보자.
-categories: [Cpp]
+categories: [PL, Common]
 ---
 
 C++을 비롯한 객체 지향 프로그래밍 언어(Object oriented programming language)를 활용한 객체 지향 프로그래밍에는 클래스(Class)와 객체(Object)의 개념을 이해하고 있는 것이 중요하다.
