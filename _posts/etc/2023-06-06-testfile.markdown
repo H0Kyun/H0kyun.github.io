@@ -89,8 +89,7 @@ int main()
 ```
 
 > 참고 자료
-> 
-> 
+> [BSCBTech Smart Class](http://www.btechsmartclass.com/c_plus_plus/theory_tutorials/cplusplus_programming_paradigms.html)
 > ### [BSC BTech Smart Class](http://www.btechsmartclass.com/c_plus_plus/theory_tutorials/cplusplus_programming_paradigms.html){: target="_blank"}
 > 
 > ### [Learn C++ Programming](https://www.udemy.com/course/cpp-deep-dive/){: target="_blank"}
