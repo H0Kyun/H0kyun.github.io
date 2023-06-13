@@ -1,0 +1,71 @@
+---
+layout: post
+title: 11723 - 집합
+subtitle: 실버 5 집합
+categories: [BOJ]
+use_math: true
+---
+
+## 📑문제링크
+
+[문제 링크](https://www.acmicpc.net/problem/11723)
+
+## ⏳회고
+
+문제의 숨은 의도를 잘 파악해야 할 것 같다. 또, 문제 해결을 직감적으로 하려 할게 아니라 차분히 원인을 분석하려는 노력이 필요할 것 같다.
+
+1. 처음에는 Set을 사용해서 해결하려 했는데 시간초과가 발생했다. 당연히, HashSet의 메서드 때문인 줄 알았다.
+2. 아래 코드처럼 배열 형태로 변경했다. 여전히 시간초과가 발생했다. 표준 입출력 문제일 수 있겠다는 생각이 들었다.
+3. StringBuilder를 사용해 표준 출력 과정의 오버헤드 시간을 줄였다. 통과했다.
+
+## 💻코드
+
+```java
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int numberOfOrder = sc.nextInt();
+        sc.nextLine();
+        
+        StringBuilder sb = new StringBuilder();
+
+        boolean[] isNumberExist = new boolean[21]; // 집합에 숫자가 존재하는지 확인하는 배열
+
+        for(int i = 0; i < numberOfOrder; i++) {
+            // 명령어와 숫자를 입력받는다.
+            String[] commandAndNumber = sc.nextLine().split(" ");
+
+            // 명령어 종류 별로 작업을 수행한다.
+            switch (commandAndNumber[0]) {
+                case "add":
+                    isNumberExist[Integer.parseInt(commandAndNumber[1])] = true;
+                    break;
+                case "remove":
+                    isNumberExist[Integer.parseInt(commandAndNumber[1])] = false;
+                    break;
+                case "check":
+                    sb
+                        .append(isNumberExist[Integer.parseInt(commandAndNumber[1])] ? 1: 0)
+                        .append("\n");
+                    break;
+                case "toggle":
+                    int number = Integer.parseInt(commandAndNumber[1]);
+                    isNumberExist[number] = !isNumberExist[number];
+                    break;
+                case "all":
+                    Arrays.fill(isNumberExist, true);
+                    break;
+                case "empty":
+                    Arrays.fill(isNumberExist, false);
+                    break;
+            }
+        }
+    
+        System.out.println(sb.toString());
+        sc.close();
+    }
+}
+```
