@@ -1,0 +1,39 @@
+---
+layout: post
+title: 9655 - 돌 게임
+subtitle: 실버 5/돌 게임
+categories: [BOJ]
+use_math: true
+---
+
+## 📑문제링크
+
+[문제 링크](https://www.acmicpc.net/problem/9655){:target="_blank"}
+
+## ⏳회고
+
+$홀수 + 홀수 = 짝수$, $짝수 + 홀수 = 홀수$ <[증명](https://ko.wikipedia.org/wiki/홀수와_짝수#성질){:target="_blank"}>
+
+위 두 정수의 성질을 생각해보면 쉽게 답을 구할 수 있다. 위 성질을 보고도 잘 모르겠다면 상근이와 창영이가 자신의 차례에 몇 개의 돌이 전체 돌 개수 $N$에서 빠지는지 생각해보자.
+
+1. 첫 번째 상근(SK)의 차례에는 $1$ 개 또는 $3$ 개를 가져갈 수 있다. 
+2. 다음 창영(CY)의 차례에는 남은 $N - 1$ 또는 $N - 3$ 개에서 $1$ 개 또는 $3$ 개를 가져갈 수 있다. 즉, $홀수(-1 or -3) + 홀수(-1 or -3)$ 만큼 $N$에서 빠지게 된다. 위 정수의 성질과 함께 생각해보면 짝수 개가 빠지는 것이다.
+3. 그 다음 상근(SK)의 차례에는 $N - 짝수$ 개에서 $1$ 개 또는 $3$ 개를 가져간다. 즉, $짝수 + 홀수(-1 or -3)$만큼 $N$에서 빠지게 된다. 이 또한 위 정수의 성질과 함께 생각하면 홀수 개가 빠지는 것이다.
+4. 즉, 상근이 차례에는 항상 전체 $N$에서 홀수 개가 빠지는 것이고 창영이 차례에는 $N$에서 짝수 개가 빠지게 된다. 이를 통해 $N$이 홀수면 상근이 이기고 $N$이 짝수면 창영이 이긴다는 것을 알 수 있다. 
+
+## 💻코드
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int numberOfStone = sc.nextInt();
+
+        System.out.println(numberOfStone % 2 == 0 ? "CY" : "SK");
+
+        sc.close();
+    }
+}
+```
