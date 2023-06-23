@@ -1,0 +1,57 @@
+---
+layout: post
+title: 10431 - 줄세우기
+subtitle: 실버 5/줄세우기
+categories: [BOJ]
+use_math: true
+---
+
+## 📑문제링크
+
+[문제 링크](https://www.acmicpc.net/problem/10431)
+
+## ⏳회고
+
+문제에 ‘정렬’이란 단어가 나오니, 나도 모르게 정렬을 하는 식으로 풀었다. 덕분에 메모리 초과를 얻을 수 있었다. 아래 조건을 조금만 생각해보면 정렬을 할 필요가 없다.
+
+- 자기(i 번째 학생) 앞에 자기보다 키가 큰 학생이 한 명 이상 있다면 그중 가장 앞에 있는 학생(A)의 바로 앞에 선다.
+    1. i 번째 학생보다 작으면서 i 번째 학생 앞에 있는 학생은 이미 A학생보다  앞에 있으므로 뒤로 이동할 필요가 없다.
+    2. 따라서 i 번째 학생보다 앞에 있으면서 큰 사람들만 뒤로 이동하게 된다. 그리고 그 학생들의 수만 세면 뒤로 이동하는 횟수를 알 수 있다.
+
+## 💻코드
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int testCase = sc.nextInt();
+        sc.nextLine();
+        
+        for(int t = 0; t < testCase; t++) {
+            int testCaseNum = sc.nextInt();
+            
+            List<Integer> students = new ArrayList<>();
+            int backMovingCount = 0;
+            
+            /* 앞에서부터 정렬하기 때문에 이제 줄을 서야하는 학생(i 번째 학생)보다
+             * 앞에 선 키가 작은 사람은 이미 본인보다 큰 사람 앞으로 이동을 마친 상태이므로
+             * i 번째 학생보다 키가 큰사람만 뒤로 움직이게 된다.
+             * 결국 i 번째 학생보다 앞에 있으며 키가 큰 사람의 수만 카운트하면 된다. */
+            for(int i = 0; i < 20; i++) {
+                students.add(sc.nextInt());
+                for(int j = 0; j < i; j++) {
+                    if(students.get(i) < students.get(j)) {
+                        backMovingCount++;
+                    }
+                }
+            }
+            
+            System.out.println(testCaseNum + " " + backMovingCount);
+        }
+        
+        sc.close();
+    }
+}
+```
