@@ -1,7 +1,6 @@
-# 줄세우기 - 2631
 ---
 layout: post
-title: 줄세우기 - 2631
+title: 2631 - 줄세우기
 subtitle: 골드 4/줄세우기
 categories: [BOJ]
 use_math: true
