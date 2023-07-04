@@ -62,8 +62,7 @@ categories: [네트워크]
 
 노드 추가 삭제하기가 쉬우며 특정 노드에 트래픽이 몰리면 하위 노드에도 영향을 준다.
 
-![[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif) by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)](https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif)
-
+<a href="https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif" alt="네트워크 토폴리지" /></a>
 <span class="caption text-muted">[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif) by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)</span>
 
 **하이브리드**
