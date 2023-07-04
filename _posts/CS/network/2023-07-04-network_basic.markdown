@@ -62,7 +62,7 @@ categories: [네트워크]
 
 노드 추가 삭제하기가 쉬우며 특정 노드에 트래픽이 몰리면 하위 노드에도 영향을 준다.
 
-<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif" alt="네트워크 토폴리지" /></p>
+<a align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif" alt="네트워크 토폴리지" /></a>
 <span class="caption text-muted">[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif){:target="_blank"} by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/){:target="_blank"}</span>
 
 **하이브리드**
@@ -88,14 +88,14 @@ categories: [네트워크]
 
 근거리 통신망을 의미하며 같은 건물이나 캠퍼스 같은 좁은 공간에서 운영된다.
 
-<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Red_LAN.gif" alt="LAN" /></p>
+<a align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Red_LAN.gif" alt="LAN" /></a>
 <span class="caption text-muted">[LAN](https://commons.wikimedia.org/wiki/File:Red_LAN.gif){:target="_blank"} by Enh lepree / [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en){:target="_blank"}</span>
 
 ### MAN
 
 대도시 지역 네트워크를 나타내며 도시 같은 넓은 지역에서 운영된다.
 
-<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/1/15/3shabake.jpg" alt="LAN" /></p>
+<a align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/1/15/3shabake.jpg" alt="LAN" /></a>
 <span class="caption text-muted">[MAN](https://commons.wikimedia.org/wiki/File:3shabake.jpg){:target="_blank"} by زهرا برزنونی / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.en){:target="_blank"}</span>
 
 ### WAN
