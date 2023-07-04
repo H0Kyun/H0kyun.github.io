@@ -62,8 +62,8 @@ categories: [네트워크]
 
 노드 추가 삭제하기가 쉬우며 특정 노드에 트래픽이 몰리면 하위 노드에도 영향을 준다.
 
-<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif" alt="네트워크 토폴리지" /></p>S
-<span class="caption text-muted">[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif) by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)</span>
+<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif" alt="네트워크 토폴리지" /></p>
+<span class="caption text-muted">[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif){:target="_blank"} by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/){:target="_blank"}</span>
 
 **하이브리드**
 
@@ -77,9 +77,8 @@ categories: [네트워크]
 
 허브를 링형으로 연결해 둔다.
 
-![[하이브리드 토폴리지](https://commons.wikimedia.org/wiki/File:%E0%A6%B9%E0%A6%BE%E0%A6%87%E0%A6%AC%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1_%E0%A6%9F%E0%A6%AA%E0%A7%8B%E0%A6%B2%E0%A6%9C%E0%A6%BF.png)  by ব্যবহারকারী:Nafiur14 / [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en)](https://upload.wikimedia.org/wikipedia/commons/d/d7/হাইব্রিড_টপোলজি.png)
-
-[하이브리드 토폴리지](https://commons.wikimedia.org/wiki/File:%E0%A6%B9%E0%A6%BE%E0%A6%87%E0%A6%AC%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1_%E0%A6%9F%E0%A6%AA%E0%A7%8B%E0%A6%B2%E0%A6%9C%E0%A6%BF.png)  by ব্যবহারকারী:Nafiur14 / [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+<p align="center"><img class="img-fluid" src="https://creativecommons.org/publicdomain/zero/1.0/deed.en)](https://upload.wikimedia.org/wikipedia/commons/d/d7/হাইব্রিড_টপোলজি.png" alt="하이브리드 토폴리지" /></p>
+<span class="caption text-muted">[하이브리드 토폴리지](https://commons.wikimedia.org/wiki/File:%E0%A6%B9%E0%A6%BE%E0%A6%87%E0%A6%AC%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1_%E0%A6%9F%E0%A6%AA%E0%A7%8B%E0%A6%B2%E0%A6%9C%E0%A6%BF.png){:target="_blank"}  by ব্যবহারকারী:Nafiur14 / [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en){:target="_blank"}</span>
 
 ## 네트워크 분류
 
