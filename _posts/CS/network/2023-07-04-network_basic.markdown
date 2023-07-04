@@ -88,17 +88,15 @@ categories: [네트워크]
 
 근거리 통신망을 의미하며 같은 건물이나 캠퍼스 같은 좁은 공간에서 운영된다.
 
-![[LAN](https://commons.wikimedia.org/wiki/File:Red_LAN.gif) by Enh lepree / [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en)](https://upload.wikimedia.org/wikipedia/commons/8/80/Red_LAN.gif)
-
-[LAN](https://commons.wikimedia.org/wiki/File:Red_LAN.gif) by Enh lepree / [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en)
+<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Red_LAN.gif" alt="LAN" /></p>
+<span class="caption text-muted">[LAN](https://commons.wikimedia.org/wiki/File:Red_LAN.gif){:target="_blank"} by Enh lepree / [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en){:target="_blank"}</span>
 
 ### MAN
 
 대도시 지역 네트워크를 나타내며 도시 같은 넓은 지역에서 운영된다.
 
-![[MAN](https://commons.wikimedia.org/wiki/File:3shabake.jpg) by زهرا برزنونی / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](https://upload.wikimedia.org/wikipedia/commons/1/15/3shabake.jpg)
-
-[MAN](https://commons.wikimedia.org/wiki/File:3shabake.jpg) by زهرا برزنونی / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
+<p align="center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/1/15/3shabake.jpg" alt="LAN" /></p>
+<span class="caption text-muted">[MAN](https://commons.wikimedia.org/wiki/File:3shabake.jpg){:target="_blank"} by زهرا برزنونی / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.en){:target="_blank"}</span>
 
 ### WAN
 
