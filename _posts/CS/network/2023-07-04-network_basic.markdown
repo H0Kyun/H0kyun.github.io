@@ -64,7 +64,7 @@ categories: [네트워크]
 
 ![[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif) by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)](https://upload.wikimedia.org/wikipedia/commons/4/41/Topology.gif)
 
-[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif) by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)
+<span class="caption text-muted">[네트워크 토폴리지](https://commons.wikimedia.org/wiki/File:Topology.gif) by अरविंद धरेप्पा बगले / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)</span>
 
 **하이브리드**
 
