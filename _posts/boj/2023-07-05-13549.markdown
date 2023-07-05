@@ -1,0 +1,100 @@
+---
+layout: post
+title: 13549 - 숨바꼭질 3
+subtitle: 골드 5/숨바꼭질 3
+categories: [BOJ]
+use_math: true
+---
+
+## 📑문제링크
+
+[문제 링크](https://www.acmicpc.net/problem/13549)
+
+## ⏳회고
+
+현재 위치와 시간을 저장하는 Data 객체를 Queue를 사용해서 관리했다. 그러면 시간 변동이 없는 2배 이동으로 현재 위치에 도달해 Queue 내부 다른 데이터보다 시간 값이 낮은 Data가 있어도 그 앞선 Data가  if문 조건에 먼저 걸려 시간값이 크게 나왔다.
+
+- 예) $N = 4$, $K = 6$이고 $(위치, 시간)$ 형태의 데이터를 Queue에 넣었을 때
+    1. 반복문이 처음 돈 후 Queue 값 $(5, 1)$, $(3, 1)$, $(8, 0)$
+    2. 한 번 더 반복문이 돈 후 Queue 값 $(6, 2)$, $(4, 2)$, $(10, 0)$, $(4, 2)$, $(2, 2)$, $(6, 0)$,……
+    3. $(6, 0)$ 있어도 $(6, 2)$가 먼저이므로 답이 $2$가 나온다.
+
+또 방문을 확인하는 visited 배열도 단순 boolean으로 확인하니 이미 나온 숫자지만 방문 시간이 더 낮은 경우를 확인하지 못하는 문제가 있었다.
+
+- 예) $N = 4, K = 6$이고 $(위치, 시간)$ 형태의 데이터를 Queue에 넣었을 때
+    1. 반복문이 처음 돈 후 Queue 값 $(5, 1)$, $(3, 1)$, $(8, 0)$
+    2. 한 번 더 반복문이 돈 후 Queue 값 $(6, 2)$, $(4, 2)$, $(10, 0)$, $(4, 2)$, $(2, 2)$, $(6, 0)$,……
+    3. $(6, 0)$ 있어도 $(6, 2)$가 먼저 나와 방문 배열(visited) 체크에서 걸리므로 답이 $2$가 나온다.
+
+## 💻코드
+
+```java
+import java.util.*;
+
+public class Main {
+
+    static class Data {
+        int pos;
+        int time;
+
+        public Data(int pos, int time) {
+            this.pos = pos;
+            this.time = time;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+
+        System.out.println(findShortestTime(N, K));
+
+        sc.close();
+    }
+
+    private static int findShortestTime(int N, int K) {
+        // 시간 기준 오름차순 정렬을 위한 최소힙
+        PriorityQueue<Data> pq = new PriorityQueue<>(Comparator.comparingInt(d -> d.time));
+        pq.add(new Data(N, 0));
+
+        // 방문 시간을 확인하기 위한 배열
+        int[] visited = new int[100001];
+        Arrays.fill(visited, Integer.MAX_VALUE);
+        visited[N] = 0;
+
+        while(!pq.isEmpty()) {
+            Data cur = pq.poll();
+
+            // 현재 위치가 동생위치(K)면 현재 시간 반환
+            if(cur.pos == K) {
+                return cur.time;
+            }
+
+            int pos = cur.pos;
+
+            /* 이동할 위치가 유효범위 안이고 이동 시간이 이전 방문 시간보다 작아야 이동할 수 있다 */
+            if(pos + 1 <= 100000 && visited[pos + 1] > cur.time + 1) {
+                pq.add(new Data(pos + 1, cur.time + 1));
+                visited[pos + 1] = cur.time + 1;
+            }
+
+            if(pos - 1 >= 0 && visited[pos - 1] > cur.time + 1) {
+                pq.add(new Data(pos - 1, cur.time + 1));
+                visited[pos - 1] = cur.time + 1;
+            }
+
+            if(pos * 2 <= 100000 && visited[pos * 2] > cur.time) {
+                pq.add(new Data(pos * 2, cur.time));
+                visited[pos * 2] = cur.time;
+            }
+
+        }
+
+        // 동생위치에 도달할 수 없다는 얘기
+        // 이 문제에서는 나올 수 없는 수치다.
+        return 0;
+    }
+
+}
+```
