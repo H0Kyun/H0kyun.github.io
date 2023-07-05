@@ -34,14 +34,12 @@ TCP/IP 계층은 네 개의 계층을 가지고 있으며 OSI 7계층과 많이 
 각 패킷에는 가상회선 식별자가 포함되며 모든 패킷을 전송하면 가상회선이 해제되고 패킷들은 전송된 순서대로 도착하는 방식, 경로 선택은 경로를 설정할 때 한 번만 수행한다.
 
 <p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled.png" alt="가상회선 패킷 교환 방식" /></p>
-<span class="caption text-muted">가상회선 패킷 교환 방식</span>
 
 ### 1.2.2. 데이터 그램 패킷 교환 방식
 
 패킷이 독립적으로 이동하며 최적의 경로를 선택하여 간다. 하나의 메시지에서 분할된 여러 패킷은 서로 다른 경로로 전송될 수 있으며 도착한 순서가 다를 수 있는 방식이다. 패킷들은 라우터마다 경로가 지정된다.
 
 <p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 1.png" alt="데이터그램 패킷 교환 방식" /></p>
-<span class="caption text-muted">데이터그램 패킷 교환 방식</span>
 
 ### 1.2.3. TCP 연결
 
