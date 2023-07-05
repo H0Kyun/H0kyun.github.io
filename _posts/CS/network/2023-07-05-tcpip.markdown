@@ -16,7 +16,7 @@ categories: [네트워크]
 
 TCP/IP 계층은 네 개의 계층을 가지고 있으며 OSI 7계층과 많이 비교한다.
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/OSIvsTCP.png" alt="OSI vs TCP/IP" width="70%" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/OSIvsTCP.png" alt="OSI vs TCP/IP" width="50%"/></p>
 <span class="caption text-muted">좌: OSI 7 계층 / 우: TCP/IP 4계층</span>
 
 ## 1.1. 응용 계층
@@ -33,13 +33,13 @@ TCP/IP 계층은 네 개의 계층을 가지고 있으며 OSI 7계층과 많이 
 
 각 패킷에는 가상회선 식별자가 포함되며 모든 패킷을 전송하면 가상회선이 해제되고 패킷들은 전송된 순서대로 도착하는 방식, 경로 선택은 경로를 설정할 때 한 번만 수행한다.
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled.png" alt="가상회선 패킷 교환 방식" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled.png" alt="가상회선 패킷 교환 방식" /></p>
 
 ### 1.2.2. 데이터 그램 패킷 교환 방식
 
 패킷이 독립적으로 이동하며 최적의 경로를 선택하여 간다. 하나의 메시지에서 분할된 여러 패킷은 서로 다른 경로로 전송될 수 있으며 도착한 순서가 다를 수 있는 방식이다. 패킷들은 라우터마다 경로가 지정된다.
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 1.png" alt="데이터그램 패킷 교환 방식" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 1.png" alt="데이터그램 패킷 교환 방식" /></p>
 
 ### 1.2.3. TCP 연결
 
@@ -47,7 +47,7 @@ UDP는 아래의 handshake 과정이 신뢰성 없는 계층이라 불린다.
 
 **성립 과정 (3-way-hankshake)**
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 2.png" alt="3-way-handshake" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 2.png" alt="3-way-handshake" /></p>
 <span class="caption text-muted">3-way-handshake</span>
 
 1. SYN 단계: 클라이언트는 서버에 클라이언트의 ISN을 담아 SYN을 보낸다. ISN은 새로운 TCP 연결의 첫 번째 패킷에 할당된 임의의 시퀀스 번호를 말한다.
@@ -56,7 +56,7 @@ UDP는 아래의 handshake 과정이 신뢰성 없는 계층이라 불린다.
 
 **해제 과정(4-way-hankshake)**
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 3.png" alt="4-way-handshake" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 3.png" alt="4-way-handshake" /></p>
 <span class="caption text-muted">4-way-handshake</span>
 
 1. 연결을 닫으려는 클라이언트가 FIN 세그먼트를 보낸다. 클라이언트는 FIN-WAIT-1 상태에 들어간다.
@@ -112,7 +112,7 @@ TIME_WAIT이 존재하는 이유는 아래의 두 가지이다.
 
 이더넷 프레임을 통해 전달받은 데이터의 에러를 검출하고 캡슐화하며 다음과 같은 구조를 가진다. 
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 4.png" alt="프레임 구조" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/Untitled 4.png" alt="프레임 구조" /></p>
 <span class="caption text-muted">프레임 구조</span>
 
 Preamble: 이더넷 프레임이 시작임을 알린다.
@@ -139,7 +139,7 @@ CRC: 에러 확인 비트
 
 캡슐화 과정은 상위 계층의 헤더와 데이터를 하위 계층의 데이터 부분에 포함하고 해당 계층의 헤더를 삽입하는 과정을 말한다. 비캡슐화는 이의 역순으로 진행한다.
 
-<p algin="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/PDU.png" alt="OSI 7계층 캡슐화 과정과 PDU" /></p>
+<p align="center"><img class="img-fluid" src="/assets/img/Network/OSI_TCP/PDU.png" alt="OSI 7계층 캡슐화 과정과 PDU" /></p>
 <span class="caption text-muted">OSI 7계층 캡슐화 과정과 PDU</span>
 
 OSI 7계층 캡슐화단계와 PDU
