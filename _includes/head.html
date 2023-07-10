@@ -3,7 +3,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="Hokyun">
   {% if page.excerpt %}
-    {% capture description %}{{ page.excerpt | strip_html | truncate: 100 }}{% endcapture %}
+    {% capture description %}{{ page.excerpt | strip_html | truncate: 200 }}{% endcapture %}
   {% else %}
     {% capture description %}{{ site.description }}{% endcapture %}
   {% endif %}
