@@ -7,7 +7,7 @@
   {% else %}
     {% capture description %}{{ site.description }}{% endcapture %}
   {% endif %}
-  <meta name="description" content="공부정리 블로그">
+  <meta name="description" content="{{ description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   {% if page.title %}
     {% capture title %}{{ page.title }} - {{ site.title }}{% endcapture %}
