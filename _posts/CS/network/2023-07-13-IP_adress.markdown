@@ -20,11 +20,13 @@ IP주소를 ARP로 MAC 주소로 변환한다. RARP(Reverse Arddress Resolution 
 
 호스트 PC가 MAC 주소를 알고 싶은 IP 주소를 브로드캐스팅하면 해당 IP를 논리주소로 갖고 있는 다른 호스트 PC가 자신의 MAC 주소를 응답으로 알려준다.
 
-![1. MAC 주소를 알고 싶은 IP 주소를 브로드캐스팅](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/ARP_1.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/ARP_1.png" alt="ARP 요청" /></p>
+<span class="caption text-muted">1. MAC 주소를 알고 싶은 IP 주소를 브로드캐스팅</span>
 
 1. MAC 주소를 알고 싶은 IP 주소를 브로드캐스팅
 
-![2. IP를 논리주소로 갖고 있는 PC가 자신의 MAC주소를 응답](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/ARP_2.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/ARP_2.png" alt="ARP 응답" /></p>
+<span class="caption text-muted">2. IP를 논리주소로 갖고 있는 PC가 자신의 MAC주소를 응답</span>
 
 2. IP를 논리주소로 갖고 있는 PC가 자신의 MAC주소를 응답
 
@@ -32,11 +34,13 @@ IP주소를 ARP로 MAC 주소로 변환한다. RARP(Reverse Arddress Resolution 
 
 RARP는 반대로 호스트 PC의 MAC 주소는 알고 있지만 IP 주소를 모를 때 MAC 주소를 담은 RARP 요청을 브로드캐스팅한다. 그러면 RARP 서버가 호스트 PC의 IP를 담은 RARP 패킷을 응답한다.
 
-![1. MAC 주소를 담은 RARP 요청을 브로드캐스팅](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/RARP_1.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/RARP_1.png" alt="RARP 요청" /></p>
+<span class="caption text-muted">1. MAC 주소를 담은 RARP 요청을 브로드캐스팅</span>
 
 1. MAC 주소를 담은 RARP 요청을 브로드캐스팅
 
-![2. RARP Server가 호스트 PC의 IP를 응답](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/RARP_2.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/RARP_2.png" alt="RARP 응답" /></p>
+<span class="caption text-muted">2. RARP Server가 호스트 PC의 IP를 응답</span>
 
 2. RARP Server가 호스트 PC의 IP를 응답
 
@@ -46,7 +50,8 @@ RARP는 반대로 호스트 PC의 MAC 주소는 알고 있지만 IP 주소를 �
 
 통신망에서 패킷이 여러 노드나 라우터를 건너가는 모습을 보고 홉바이홉(hop-by-hop) 통신이라 부른다. 노드(라우터)가 수신한 패킷의 헤더에 있는 주소를 조사하여, 라우팅 테이블에 있는 최적 경로 상에 있는 다음 노드를 찾아 수신한 패킷을 보낸다.
 
-![hop.png](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/hop.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/hop.png" alt="hop-by-hop" /></p>
+<span class="caption text-muted">hop-by-hop</span>
 
 ## 2.1. 라우팅 테이블(routing table)
 
@@ -71,11 +76,13 @@ IPv4에서 .으로 구별하는 8비트 단위를 옥텟(Octet)이라 부른다.
 
 초기에는 IP를 A, B, C, D, E 다섯 개의 클래스로 구분하고 IP가 필요한 곳의 규모에 따라 네트워크를 할당하는 방식을 사용했다. IPv4의 왼쪽 비트부터 1, 10, 110, 1110, 1111로 클래스 A, B, C, D, E를 나눈다. 클래스 A, B, C는 일대일 통신에 사용되고 D 클래스는 브로드캐스트용으로 E클래스는 예비용 주소이다.
 
-![classful_network_addressing_1.png](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/classful_network_addressing_1.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/classful_network_addressing_1.png" alt="클래스별 IP 주소 범위" /></p>
+<span class="caption text-muted">클래스별 IP 주소 범위</span>
 
 이렇게 나눈 클래스는 네트워크 주소의 범위를 다르게 할당하여 할당할 수 있는 호스트 주소의 규모를 결정한다.
 
-![classful_network_addressing_2.png](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/classful_network_addressing_2.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/classful_network_addressing_2.png" alt="클래스별 네트워크 주소와 호스트 주소 점유율" /></p>
+<span class="caption text-muted">클래스별 네트워크 주소와 호스트 주소 점유율</span>
 
 Class A는 네트워크 주소에 할당된 바이트가 적어 256개의 네트워크만 가질 수 있지만 호스트에 할당된 주소가 많아 한 네트워크 당 약 160만 개의 호스트를 가질 수 있다. 따라서 Class A는 대규모 기업이나 단체에 할당된다. 이런 식으로 규모에 따라 클래스별 네트워크를 할당한다.
 
@@ -91,7 +98,8 @@ NAT는 전송되고 있는 패킷의 IP 주소 정보를 다른 IP 정보로 매
 
 NAT 장치를 통해 여러 사설 IP를 사용하는 호스트들이 하나의 공용 IP를 사용할 수 있게 된다.
 
-![NAT.png](4%20IP%20%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A9%208e2d0f48b6314583bb03b6b8eaf94d88/NAT.png)
+<p align="center"><img class="img-fluid" src="/assets/img/Network/IP_Address/NAT.png" alt="NAT" /></p>
+<span class="caption text-muted">NAT</span>
 
 NAT는 여러 명이 동시에 인터넷에 접속하는 구조가 되어 호스트 숫자가 늘어나면 인터넷 속도가 느려질 수 있다. 많은 사람이 하나의 공유기를 사용했을 때 느려지는 것을 생각하면 좋다.
 
@@ -99,4 +107,5 @@ NAT는 여러 명이 동시에 인터넷에 접속하는 구조가 되어 호스
 
 <br>
 >###### 자료 출처
->###### 면접을 위한 CS 전공지식 노트
+>###### 면접을 위한 CS 전공지식 노트 by 주홍철
+>###### [IP 주소(클래스, CIDR, 서브넷 마스크)](https://zzang9ha.tistory.com/413){:target="_blank"} by 주발2
