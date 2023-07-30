@@ -1,0 +1,44 @@
+---
+layout: post
+title: 과제 안 내신 분..? - 5597
+subtitle: 브론즈 5/과제 안 내신 분..?
+categories: [BOJ]
+use_math: true
+---
+
+## 📑문제링크
+
+[문제 링크](https://www.acmicpc.net/problem/5597)
+
+## ⏳회고
+
+C++을 사용할 때는 배열 초기화를 꼭 하자
+
+## 💻코드
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    bool checked[30] = {false, };
+    for(int i = 0; i < 28; ++i)
+    {
+        int n = 0;
+        cin >> n;
+        checked[--n] = true; 
+    }
+
+    for(int i = 0; i < 30; ++i)
+    {
+        if(!checked[i])
+        {
+            cout << (i + 1) << "\n";
+        }
+    }
+
+    return 0;
+}
+```
