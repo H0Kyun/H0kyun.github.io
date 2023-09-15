@@ -1,0 +1,60 @@
+---
+layout: post
+title: 퇴사 - 14501
+subtitle: 실버 3/퇴사
+categories: [BOJ]
+use_math: true
+---
+
+## 📑문제링크
+
+[문제 링크](https://www.acmicpc.net/problem/14501)
+
+## ⏳회고
+
+1. DP 문제이다.
+2. 마지막 날부터 최대 이익을 계산하면 편하게 풀 수 있다. 이 방법을 생각하지 못해 고생을 좀 했다. 이런 걸 한 번에 생각하는 사람들이 참 대단한 것 같다.
+
+## 💻코드
+
+```java
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        
+        int[] T = new int[N];
+        int[] P = new int[N];
+        int[] dp = new int[N + 1]; // dp[N + 1]은 퇴사한 날 => 수익 0원
+        for(int i = 0; i < N; ++i) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            T[i] = Integer.parseInt(st.nextToken());
+            P[i] = Integer.parseInt(st.nextToken());
+        }
+
+        // 퇴사 전날부터 최대비용을 계산한다.
+        for(int i = N - 1; i >= 0; --i) {
+            int availableDayToConsult = i + T[i];
+            // 현재 예약한 상담을 진행할 수 없으면 다음날 수익을 가져온다.
+            if(availableDayToConsult > N) {
+                dp[i] = dp[i + 1];
+            }
+            // 현재 예약한 상담을 진행할 수 있으면,
+            // 가장 빠른 다음 상담의 수익과 지금 진행한 상담의 수익의 합을
+            // 내일 수익과 비교하여 가장 큰 값을 넣는다.
+            /* -> 오늘 상담을 하면 내일 상담을 못할 가능성도 있기 때문에 둘을 비교해 더 큰 수익을 남길 수 있는
+                  상담을 남긴다. */
+            else {
+                dp[i] = Math.max(dp[i + 1], dp[availableDayToConsult] + P[i]);
+            }
+        }
+
+        System.out.println(dp[0]);
+
+        br.close();
+    }
+}
+```
